@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-Commerce Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f8f8f8;
+        }
+        header {
+            background: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background: #444;
+            padding: 15px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+        }
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: #eaded1;
+        }
+        .hero h1 {
+            font-size: 36px;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px;
+        }
+        .product {
+            background: white;
+            padding: 20px;
+            width: 220px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .product img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        button {
+            background: #222;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>E-COMMERCE STORE</h1>
+    <p>Your Online Shopping Destination</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero">
+    <h1>Welcome to Our Store!</h1>
+    <p>Discover amazing products at great prices.</p>
+</section>
+
+<h2 style="text-align:center;">Our Products</h2>
+
+<section class="products" id="products">
+    <div class="product">
+        <img src="https://placehold.co/300x200?text=Shoes" alt="Shoes">
+        <h3>Stylish Shoes</h3>
+        <p>₹999</p>
+        <button onclick="alert('Added to cart!')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+        <img src="https://placehold.co/300x200?text=Watch" alt="Watch">
+        <h3>Smart Watch</h3>
+        <p>₹1499</p>
+        <button onclick="alert('Added to cart!')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+        <img src="https://placehold.co/300x200?text=Bag" alt="Bag">
+        <h3>Fashion Bag</h3>
+        <p>₹799</p>
+        <button onclick="alert('Added to cart!')">Add to Cart</button>
+    </div>
+</section>
+
+<section id="contact" style="text-align:center;padding:30px;">
+    <h2>Contact Us</h2>
+    <p>Email: support@example.com</p>
+</section>
+
+<footer style="background:#222;color:white;text-align:center;padding:15px;">
+    © 2026 E-Commerce Store
+</footer>
+
+</body>
+</html>
