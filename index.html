@@ -4,46 +4,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ShopEase - Affordable Shopping</title>
+<title>HESA - Affordable Shopping</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,sans-serif;background:#fffaf7;color:#292929}
-header{background:white;padding:17px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;box-shadow:0 2px 12px #0001;position:sticky;top:0;z-index:5}
+button{cursor:pointer}
+header{background:white;padding:16px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;box-shadow:0 2px 12px #0001;position:sticky;top:0;z-index:5}
 .logo{font-size:27px;font-weight:bold;color:#e65b83}
 .logo span{color:#333}
-.search{padding:12px;border:1px solid #ddd;border-radius:25px;width:230px;font-size:15px}
-.cart-btn{background:#e65b83;color:white;border:0;padding:11px 16px;border-radius:25px;cursor:pointer;font-weight:bold}
+.search{padding:12px;border:1px solid #ddd;border-radius:25px;width:220px;font-size:15px}
+.btn{background:#e65b83;color:white;border:0;padding:11px 16px;border-radius:22px;font-weight:bold}
+.btn:hover{background:#bd3d65}
+.light-btn{background:#eee;color:#333;border:0;padding:10px 14px;border-radius:8px}
 .hero{margin:25px 5%;padding:40px 7%;border-radius:22px;background:linear-gradient(120deg,#ffe0e9,#fff0d9);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 .hero h1{font-size:clamp(30px,5vw,48px);color:#a8325b;margin-bottom:12px}
 .hero p{font-size:17px;line-height:1.6}
 .hero img{width:220px;max-width:100%;border-radius:18px}
-.hero button{margin-top:18px;background:#e65b83;color:white;border:0;padding:13px 23px;border-radius:25px;cursor:pointer}
+.hero button{margin-top:18px}
 h2{text-align:center;margin:30px 0 20px}
+.section-title{text-align:center;margin:30px 0 20px}
 .categories{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:0 12px}
-.categories button{border:1px solid #e65b83;background:white;color:#b63b60;padding:10px 17px;border-radius:25px;cursor:pointer}
+.categories button{border:1px solid #e65b83;background:white;color:#b63b60;padding:10px 17px;border-radius:25px}
 .categories button.active,.categories button:hover{background:#e65b83;color:white}
 .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:22px;padding:25px 5%}
-.card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 3px 15px #00000010;transition:.2s}
+.card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 3px 15px #00000010;position:relative;transition:.2s}
 .card:hover{transform:translateY(-4px)}
 .card img{width:100%;height:190px;object-fit:cover;background:#f5eeee}
 .details{padding:15px}
 .details h3{font-size:17px;margin-bottom:8px}
 .price{color:#df4775;font-size:19px;font-weight:bold;margin:9px 0}
-.details button{width:100%;padding:11px;border:0;border-radius:8px;background:#e65b83;color:white;cursor:pointer;font-weight:bold}
+.add-btn{width:100%;padding:11px;border:0;border-radius:8px;background:#e65b83;color:white;font-weight:bold}
+.heart{position:absolute;right:10px;top:10px;background:white;border:0;border-radius:50%;width:38px;height:38px;font-size:21px;box-shadow:0 2px 8px #0002}
+.rating{margin:8px 0;color:#d18a00;font-size:14px}
+.rating button{border:0;background:none;color:#d18a00;font-size:19px;padding:0 1px}
 .empty{text-align:center;padding:35px;color:#777;grid-column:1/-1}
 footer{background:#292929;color:white;text-align:center;padding:28px;margin-top:35px;line-height:1.8}
-#cartPanel{display:none;position:fixed;right:0;top:0;width:350px;max-width:100%;height:100%;background:white;z-index:10;box-shadow:-5px 0 20px #0003;padding:22px;overflow-y:auto}
-#adminPanel{display:none;position:fixed;inset:0;background:#fffaf7;z-index:20;overflow:auto;padding:25px}
-.admin-box{max-width:650px;margin:auto}
-.admin-input{width:100%;padding:12px;margin:7px 0;border:1px solid #ddd;border-radius:8px;font-size:15px}
+#cartPanel,#adminPanel,#loginPanel{display:none;position:fixed;inset:0;background:#fffaf7;z-index:20;overflow:auto;padding:25px}
+.panel-box{max-width:650px;margin:auto}
+.admin-input,.login-input{width:100%;padding:12px;margin:7px 0;border:1px solid #ddd;border-radius:8px;font-size:15px}
 .cart-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-.close{border:0;background:#eee;padding:9px 12px;border-radius:8px;cursor:pointer}
 .cart-item{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:13px 0;border-bottom:1px solid #eee}
-.cart-item button{padding:5px 9px;border:0;border-radius:5px;cursor:pointer}
+.cart-item button{padding:6px 10px;border:0;border-radius:5px}
 .total{font-size:21px;font-weight:bold;margin:22px 0}
-.checkout{width:100%;background:#e65b83;color:white;border:0;padding:13px;border-radius:9px;cursor:pointer}
+.checkout{width:100%;background:#e65b83;color:white;border:0;padding:13px;border-radius:9px}
 .admin-product{background:white;padding:13px;margin:10px 0;border-radius:10px;box-shadow:0 2px 8px #0001}
+.modal-card{max-width:420px;margin:55px auto;background:white;padding:25px;border-radius:16px;box-shadow:0 4px 20px #0002}
+.account-info{text-align:center;color:#a8325b;margin:10px}
+.hidden{display:none!important}
 @media(max-width:600px){
  header{justify-content:center}
  .search{width:100%}
@@ -62,15 +70,19 @@ footer{background:#292929;color:white;text-align:center;padding:28px;margin-top:
 <header>
  <div class="logo">Shop<span>Ease</span> 🛍️</div>
  <input class="search" id="search" placeholder="Search products..." oninput="renderProducts()">
- <button class="cart-btn" onclick="openAdmin()">⚙️ Manage Products</button>
- <button class="cart-btn" onclick="openCart()">🛒 Cart (<span id="count">0</span>)</button>
+ <button class="btn" id="loginButton" onclick="openLogin()">👤 Login</button>
+ <button class="btn" onclick="showWishlist()">❤️ Wishlist (<span id="wishCount">0</span>)</button>
+ <button class="btn" onclick="openAdmin()">⚙️ Admin</button>
+ <button class="btn" onclick="openCart()">🛒 Cart (<span id="count">0</span>)</button>
 </header>
 
-<section class="hero">
+<div id="welcome" class="account-info"></div>
+
+<section class="hero" id="home">
  <div>
   <h1>Shopping Made Affordable!</h1>
   <p>Beautiful products. Everyday prices.<br>Smart shopping for everyone.</p>
-  <button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Explore Products</button>
+  <button class="btn" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Explore Products</button>
  </div>
  <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500" alt="Shopping store">
 </section>
@@ -87,6 +99,7 @@ footer{background:#292929;color:white;text-align:center;padding:28px;margin-top:
  <button onclick="setCategory('Stationery',this)">Stationery</button>
 </div>
 
+<h3 id="viewTitle" class="section-title"></h3>
 <div class="products" id="products"></div>
 
 <footer>
@@ -95,14 +108,40 @@ footer{background:#292929;color:white;text-align:center;padding:28px;margin-top:
  © 2026 ShopEase. All rights reserved.
 </footer>
 
-<!-- ADMIN PANEL -->
+<!-- CUSTOMER LOGIN -->
+<div id="loginPanel">
+ <div class="modal-card">
+  <h2>Welcome to ShopEase ❤️</h2>
+  <p style="text-align:center;margin-bottom:15px">Enter your details to continue.</p>
+  <input id="customerName" class="login-input" placeholder="Your name">
+  <input id="customerEmail" class="login-input" type="email" placeholder="Your email address">
+  <button class="btn" style="width:100%;margin-top:12px" onclick="login()">Continue</button>
+  <button class="light-btn" style="width:100%;margin-top:10px" onclick="closeLogin()">Cancel</button>
+  <p style="font-size:12px;color:#888;margin-top:15px">Demo login only. No password or secure account is created.</p>
+ </div>
+</div>
+
+<!-- CART -->
+<div id="cartPanel">
+ <div class="panel-box">
+  <div class="cart-head">
+   <h2>Your Cart</h2>
+   <button class="light-btn" onclick="closeCart()">✕ Close</button>
+  </div>
+  <div id="cartItems"></div>
+  <div class="total">Total: ₹<span id="total">0</span></div>
+  <button class="checkout" onclick="checkout()">Place Demo Order</button>
+  <p style="font-size:12px;color:#888;margin-top:12px">Demo only. No actual payment or order is processed.</p>
+ </div>
+</div>
+
+<!-- ADMIN -->
 <div id="adminPanel">
- <div class="admin-box">
+ <div class="panel-box">
   <h2>⚙️ ShopEase Admin</h2>
-  <button onclick="closeAdmin()" class="close">← Back to Store</button>
+  <button class="light-btn" onclick="closeAdmin()">← Back to Store</button>
 
   <h3 style="margin:25px 0 15px">Add / Edit Product</h3>
-
   <input id="pName" class="admin-input" placeholder="Product name">
   <input id="pPrice" class="admin-input" type="number" min="1" placeholder="Price in ₹">
 
@@ -117,24 +156,12 @@ footer{background:#292929;color:white;text-align:center;padding:28px;margin-top:
 
   <input id="pImage" class="admin-input" placeholder="Image URL (optional)">
 
-  <button onclick="saveProduct()" class="cart-btn">Save Product</button>
-  <button onclick="clearForm()" class="close">Clear</button>
+  <button class="btn" onclick="saveProduct()">Save Product</button>
+  <button class="light-btn" onclick="clearForm()">Clear</button>
 
   <h3 style="margin:25px 0 15px">Your Products</h3>
   <div id="adminProducts"></div>
  </div>
-</div>
-
-<!-- CART PANEL -->
-<div id="cartPanel">
- <div class="cart-head">
-  <h2>Your Cart</h2>
-  <button class="close" onclick="closeCart()">✕ Close</button>
- </div>
- <div id="cartItems"></div>
- <div class="total">Total: ₹<span id="total">0</span></div>
- <button class="checkout" onclick="checkout()">Place Demo Order</button>
- <p style="font-size:12px;color:#888;margin-top:12px">Demo only. No actual payment or order is processed.</p>
 </div>
 
 <script>
@@ -161,58 +188,195 @@ const defaultProducts=[
 {id:20,name:"Desk Lamp",price:299,category:"Home",img:"photo-1507473885765-e6ed057f782c"}
 ];
 
-let products=[...defaultProducts];
+function loadData(key,fallback){
+ try{
+  const value=localStorage.getItem(key);
+  return value===null?fallback:JSON.parse(value);
+ }catch(e){return fallback;}
+}
+
+let products=loadData("shopease_v3_products",defaultProducts);
+if(!Array.isArray(products))products=defaultProducts;
+
 let cart={};
+let wishlist=loadData("shopease_wishlist",[]);
+let ratings=loadData("shopease_ratings",{});
+let customer=loadData("shopease_customer",null);
 let category="All";
+let wishlistMode=false;
 let editingId=null;
 
-try{
- const saved=localStorage.getItem("shopease_products");
- if(saved){
-  const parsed=JSON.parse(saved);
-  if(Array.isArray(parsed))products=parsed;
- }
-}catch(error){
- console.log("Could not load saved products");
+function safe(value){
+ return String(value??"").replace(/[&<>"']/g,c=>({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+ }[c]));
 }
 
-function saveProducts(){
- try{
-  localStorage.setItem("shopease_products",JSON.stringify(products));
- }catch(error){
-  alert("Could not save products in this browser.");
+function saveData(key,value){
+ try{localStorage.setItem(key,JSON.stringify(value));}
+ catch(e){alert("Browser storage is unavailable or full.");}
+}
+
+function imageUrl(value){
+ if(value && /^https?:\/\//i.test(value))return value;
+ return "https://images.unsplash.com/"+(value||"photo-1542291026-7eec264c27ff")+"?auto=format&fit=crop&w=500&q=80";
+}
+
+// CUSTOMER LOGIN
+
+function openLogin(){
+ document.getElementById("loginPanel").style.display="block";
+ if(customer){
+  document.getElementById("customerName").value=customer.name||"";
+  document.getElementById("customerEmail").value=customer.email||"";
  }
 }
 
-function imageUrl(id){
- if(id && id.startsWith("http"))return id;
- return "https://images.unsplash.com/"+id+"?auto=format&fit=crop&w=500&q=80";
+function closeLogin(){
+ document.getElementById("loginPanel").style.display="none";
+}
+
+function login(){
+ const name=document.getElementById("customerName").value.trim();
+ const email=document.getElementById("customerEmail").value.trim();
+
+ if(!name||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+  alert("Please enter your name and a valid email.");
+  return;
+ }
+
+ customer={name,email};
+ saveData("shopease_customer",customer);
+ closeLogin();
+ updateAccount();
+ renderProducts();
+}
+
+function logout(){
+ customer=null;
+ localStorage.removeItem("shopease_customer");
+ updateAccount();
+ renderProducts();
+}
+
+function updateAccount(){
+ const button=document.getElementById("loginButton");
+ const welcome=document.getElementById("welcome");
+
+ if(customer){
+  button.textContent="Logout";
+  button.onclick=logout;
+  welcome.textContent="Welcome, "+customer.name+"! ❤️";
+ }else{
+  button.textContent="👤 Login";
+  button.onclick=openLogin;
+  welcome.textContent="";
+ }
+}
+
+// PRODUCTS AND RATINGS
+
+function getAverage(id){
+ const list=ratings[id]||[];
+ if(!list.length)return 0;
+ return list.reduce((a,b)=>a+b,0)/list.length;
+}
+
+function renderStars(id){
+ const list=ratings[id]||[];
+ const avg=getAverage(id);
+ const stars=[1,2,3,4,5].map(n=>
+  `<button title="Rate ${n} stars" onclick="rateProduct(${id},${n})">${n<=Math.round(avg)?"★":"☆"}</button>`
+ ).join("");
+
+ return `<div class="rating">${stars}<br>
+ <small>${list.length?avg.toFixed(1)+" / 5 ("+list.length+" ratings)":"No ratings yet"}</small></div>`;
 }
 
 function renderProducts(){
  const search=document.getElementById("search").value.toLowerCase();
- const filtered=products.filter(p=>
- (category==="All"||p.category===category)&&
- p.name.toLowerCase().includes(search)
+
+ let filtered=products.filter(p=>
+  (category==="All"||p.category===category)&&
+  p.name.toLowerCase().includes(search)
  );
 
- document.getElementById("products").innerHTML=filtered.length?filtered.map(p=>`
+ if(wishlistMode){
+  filtered=filtered.filter(p=>wishlist.includes(p.id));
+  document.getElementById("viewTitle").textContent="❤️ Your Wishlist";
+ }else{
+  document.getElementById("viewTitle").textContent="";
+ }
+
+ document.getElementById("products").innerHTML=filtered.length?
+ filtered.map(p=>`
  <div class="card">
-  <img src="${imageUrl(p.img)}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/400x300?text=ShopEase'">
+  <button class="heart" onclick="toggleWishlist(${p.id})">${wishlist.includes(p.id)?"❤️":"🤍"}</button>
+  <img src="${safe(imageUrl(p.img))}" alt="${safe(p.name)}" loading="lazy" onerror="this.src='https://placehold.co/400x300?text=ShopEase'">
   <div class="details">
-   <h3>${p.name}</h3>
-   <div class="price">₹${p.price}</div>
-   <button onclick="addToCart(${p.id})">Add to Cart 🛒</button>
+   <h3>${safe(p.name)}</h3>
+   <div class="price">₹${Number(p.price).toLocaleString("en-IN")}</div>
+   ${renderStars(p.id)}
+   <button class="add-btn" onclick="addToCart(${p.id})">Add to Cart 🛒</button>
   </div>
- </div>`).join(""):'<div class="empty">No products found. Try another search.</div>';
+ </div>`).join("")
+ :'<div class="empty">No products found.</div>';
+
+ document.getElementById("wishCount").textContent=wishlist.length;
 }
 
 function setCategory(value,button){
  category=value;
+ wishlistMode=false;
  document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
  button.classList.add("active");
  renderProducts();
 }
+
+function rateProduct(id,value){
+ if(!customer){
+  alert("Please log in to rate products.");
+  openLogin();
+  return;
+ }
+
+ if(!ratings[id])ratings[id]=[];
+ ratings[id].push(value);
+ saveData("shopease_ratings",ratings);
+ renderProducts();
+}
+
+function toggleWishlist(id){
+ if(!customer){
+  alert("Please log in to use your wishlist.");
+  openLogin();
+  return;
+ }
+
+ if(wishlist.includes(id)){
+  wishlist=wishlist.filter(x=>x!==id);
+ }else{
+  wishlist.push(id);
+ }
+
+ saveData("shopease_wishlist",wishlist);
+ renderProducts();
+}
+
+function showWishlist(){
+ if(!customer){
+  alert("Please log in to view your wishlist.");
+  openLogin();
+  return;
+ }
+ wishlistMode=true;
+ category="All";
+ document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
+ renderProducts();
+ document.getElementById("shop").scrollIntoView({behavior:"smooth"});
+}
+
+// SHOPPING CART
 
 function addToCart(id){
  cart[id]=(cart[id]||0)+1;
@@ -221,23 +385,26 @@ function addToCart(id){
 
 function updateCart(){
  let count=0,total=0;
- const items=Object.entries(cart);
 
- document.getElementById("cartItems").innerHTML=items.length?items.map(([id,qty])=>{
- const p=products.find(x=>x.id===Number(id));
- if(!p)return "";
- count+=qty;
- total+=p.price*qty;
- return `<div class="cart-item">
- <div><b>${p.name}</b><br>₹${p.price} × ${qty}</div>
- <div>
- <button onclick="changeQty(${id},-1)">−</button>
- <button onclick="changeQty(${id},1)">+</button>
- </div></div>`;
+ const items=Object.entries(cart);
+ document.getElementById("cartItems").innerHTML=items.length?
+ items.map(([id,qty])=>{
+  const p=products.find(x=>x.id===Number(id));
+  if(!p)return "";
+  count+=qty;
+  total+=p.price*qty;
+
+  return `<div class="cart-item">
+   <div><b>${safe(p.name)}</b><br>₹${p.price} × ${qty}</div>
+   <div>
+    <button onclick="changeQty(${id},-1)">−</button>
+    <button onclick="changeQty(${id},1)">+</button>
+   </div>
+  </div>`;
  }).join(""):"<p>Your cart is empty.</p>";
 
  document.getElementById("count").textContent=count;
- document.getElementById("total").textContent=total;
+ document.getElementById("total").textContent=total.toLocaleString("en-IN");
 }
 
 function changeQty(id,change){
@@ -249,18 +416,20 @@ function changeQty(id,change){
 function openCart(){
  document.getElementById("cartPanel").style.display="block";
 }
+
 function closeCart(){
  document.getElementById("cartPanel").style.display="none";
 }
+
 function checkout(){
  if(Object.keys(cart).length===0){
   alert("Your cart is empty!");
   return;
  }
- alert("Thank you for trying ShopEase! This is a demo store. Online ordering and payment are not enabled yet.");
+ alert("Thank you for trying ShopEase! This is a demo store. Real ordering and payments are not enabled.");
 }
 
-// ADMIN FUNCTIONS
+// ADMIN PRODUCT MANAGER
 
 function openAdmin(){
  document.getElementById("adminPanel").style.display="block";
@@ -287,7 +456,12 @@ function saveProduct(){
  const img=document.getElementById("pImage").value.trim();
 
  if(!name||!Number.isFinite(price)||price<=0){
-  alert("Please enter a product name and valid price.");
+  alert("Enter a product name and a valid price.");
+  return;
+ }
+
+ if(img && !/^https?:\/\//i.test(img)){
+  alert("Please enter an image URL starting with https:// or http://");
   return;
  }
 
@@ -309,7 +483,7 @@ function saveProduct(){
   });
  }
 
- saveProducts();
+ saveData("shopease_v3_products",products);
  clearForm();
  renderProducts();
  showAdminProducts();
@@ -317,14 +491,12 @@ function saveProduct(){
 }
 
 function showAdminProducts(){
- const box=document.getElementById("adminProducts");
-
- box.innerHTML=products.map(p=>`
+ document.getElementById("adminProducts").innerHTML=products.map(p=>`
  <div class="admin-product">
-  <b>${p.name}</b><br>
-  ₹${p.price} · ${p.category}<br><br>
-  <button class="cart-btn" onclick="editProduct(${p.id})">Edit</button>
-  <button class="close" onclick="deleteProduct(${p.id})">Delete</button>
+  <b>${safe(p.name)}</b><br>
+  ₹${p.price} · ${safe(p.category)}<br><br>
+  <button class="btn" onclick="editProduct(${p.id})">Edit</button>
+  <button class="light-btn" onclick="deleteProduct(${p.id})">Delete</button>
  </div>
  `).join("")||"No products available.";
 }
@@ -346,13 +518,21 @@ function deleteProduct(id){
 
  products=products.filter(p=>p.id!==id);
  delete cart[id];
+ wishlist=wishlist.filter(x=>x!==id);
+ delete ratings[id];
 
- saveProducts();
+ saveData("shopease_v3_products",products);
+ saveData("shopease_wishlist",wishlist);
+ saveData("shopease_ratings",ratings);
+
  renderProducts();
  updateCart();
  showAdminProducts();
 }
 
+// START WEBSITE
+
+updateAccount();
 renderProducts();
 updateCart();
 </script>
