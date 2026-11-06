@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HESA - Affordable Shopping</title>
+<title>HESA Shopping Store - Affordable Shopping</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -68,7 +67,7 @@ footer{background:#292929;color:white;text-align:center;padding:28px;margin-top:
 <body>
 
 <header>
- <div class="logo">Shop<span>Ease</span> 🛍️</div>
+ <div class="logo">HESA <span>Shopping Store</span> 🛍️</div>
  <input class="search" id="search" placeholder="Search products..." oninput="renderProducts()">
  <button class="btn" id="loginButton" onclick="openLogin()">👤 Login</button>
  <button class="btn" onclick="showWishlist()">❤️ Wishlist (<span id="wishCount">0</span>)</button>
@@ -103,15 +102,15 @@ footer{background:#292929;color:white;text-align:center;padding:28px;margin-top:
 <div class="products" id="products"></div>
 
 <footer>
- <h2>ShopEase 🛍️</h2>
+ <h2>HESA Shopping Store 🛍️</h2>
  Affordable shopping for everyone.<br>
- © 2026 ShopEase. All rights reserved.
+ © 2026 HESA Shopping Store. All rights reserved.
 </footer>
 
 <!-- CUSTOMER LOGIN -->
 <div id="loginPanel">
  <div class="modal-card">
-  <h2>Welcome to ShopEase ❤️</h2>
+  <h2>Welcome to HESA Shopping Store ❤️</h2>
   <p style="text-align:center;margin-bottom:15px">Enter your details to continue.</p>
   <input id="customerName" class="login-input" placeholder="Your name">
   <input id="customerEmail" class="login-input" type="email" placeholder="Your email address">
@@ -138,7 +137,7 @@ footer{background:#292929;color:white;text-align:center;padding:28px;margin-top:
 <!-- ADMIN -->
 <div id="adminPanel">
  <div class="panel-box">
-  <h2>⚙️ ShopEase Admin</h2>
+  <h2>⚙️ HESA Shopping Store Admin</h2>
   <button class="light-btn" onclick="closeAdmin()">← Back to Store</button>
 
   <h3 style="margin:25px 0 15px">Add / Edit Product</h3>
@@ -154,7 +153,18 @@ footer{background:#292929;color:white;text-align:center;padding:28px;margin-top:
    <option>Stationery</option>
   </select>
 
-  <input id="pImage" class="admin-input" placeholder="Image URL (optional)">
+  <label for="pImage" style="display:block;margin-top:8px;font-weight:bold">Image address (optional)</label>
+  <input id="pImage" class="admin-input" placeholder="Paste image address here (optional)" oninput="previewImageFromUrl()">
+
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 12px">
+   <button type="button" class="light-btn" onclick="searchGoogleImages()">🔎 Search Image on Google</button>
+   <label class="light-btn" for="pImageFile">📁 Upload from Laptop</label>
+   <input id="pImageFile" type="file" accept="image/*" style="display:none" onchange="previewSelectedFile(event)">
+  </div>
+
+  <p style="font-size:12px;color:#777;margin:4px 0 10px">Google Images opens in a new tab. Choose a picture, copy its image address, and paste it above. Or upload a picture from your laptop.</p>
+
+  <img id="imagePreview" alt="Product image preview" style="display:none;width:160px;height:130px;object-fit:cover;border-radius:10px;border:1px solid #ddd;margin:8px 0 14px">
 
   <button class="btn" onclick="saveProduct()">Save Product</button>
   <button class="light-btn" onclick="clearForm()">Clear</button>
@@ -218,7 +228,7 @@ function saveData(key,value){
 }
 
 function imageUrl(value){
- if(value && /^https?:\/\//i.test(value))return value;
+ if(value && (/^https?:\/\//i.test(value) || /^data:image\//i.test(value)))return value;
  return "https://images.unsplash.com/"+(value||"photo-1542291026-7eec264c27ff")+"?auto=format&fit=crop&w=500&q=80";
 }
 
@@ -312,7 +322,7 @@ function renderProducts(){
  filtered.map(p=>`
  <div class="card">
   <button class="heart" onclick="toggleWishlist(${p.id})">${wishlist.includes(p.id)?"❤️":"🤍"}</button>
-  <img src="${safe(imageUrl(p.img))}" alt="${safe(p.name)}" loading="lazy" onerror="this.src='https://placehold.co/400x300?text=ShopEase'">
+  <img src="${safe(imageUrl(p.img))}" alt="${safe(p.name)}" loading="lazy" onerror="this.src='https://placehold.co/400x300?text=HESA+Store'">
   <div class="details">
    <h3>${safe(p.name)}</h3>
    <div class="price">₹${Number(p.price).toLocaleString("en-IN")}</div>
@@ -426,7 +436,7 @@ function checkout(){
   alert("Your cart is empty!");
   return;
  }
- alert("Thank you for trying ShopEase! This is a demo store. Real ordering and payments are not enabled.");
+ alert("Thank you for trying HESA Shopping Store! This is a demo store. Real ordering and payments are not enabled.");
 }
 
 // ADMIN PRODUCT MANAGER
@@ -447,21 +457,94 @@ function clearForm(){
  document.getElementById("pPrice").value="";
  document.getElementById("pCategory").value="Fashion";
  document.getElementById("pImage").value="";
+ document.getElementById("pImageFile").value="";
+ const preview=document.getElementById("imagePreview");
+ preview.src="";
+ preview.style.display="none";
 }
 
-function saveProduct(){
+function searchGoogleImages(){
+ const name=document.getElementById("pName").value.trim();
+ const query=name || "shopping product";
+ const url="https://www.google.com/search?tbm=isch&q="+encodeURIComponent(query);
+ window.open(url,"_blank","noopener");
+}
+
+function previewImageFromUrl(){
+ const value=document.getElementById("pImage").value.trim();
+ const preview=document.getElementById("imagePreview");
+ if(value && (/^https?:\/\//i.test(value) || /^data:image\//i.test(value))){
+  preview.src=value;
+  preview.style.display="block";
+ }else if(!document.getElementById("pImageFile").files.length){
+  preview.src="";
+  preview.style.display="none";
+ }
+}
+
+function previewSelectedFile(event){
+ const file=event.target.files && event.target.files[0];
+ if(!file)return;
+ if(!file.type.startsWith("image/")){
+  alert("Please choose an image file.");
+  event.target.value="";
+  return;
+ }
+ const reader=new FileReader();
+ reader.onload=function(){
+  const preview=document.getElementById("imagePreview");
+  preview.src=reader.result;
+  preview.style.display="block";
+ };
+ reader.readAsDataURL(file);
+}
+
+function compressImage(file){
+ return new Promise((resolve,reject)=>{
+  const reader=new FileReader();
+  reader.onerror=()=>reject(new Error("Could not read the image."));
+  reader.onload=()=>{
+   const image=new Image();
+   image.onerror=()=>reject(new Error("Could not open the image."));
+   image.onload=()=>{
+    const maxSide=650;
+    const scale=Math.min(1,maxSide/Math.max(image.width,image.height));
+    const canvas=document.createElement("canvas");
+    canvas.width=Math.max(1,Math.round(image.width*scale));
+    canvas.height=Math.max(1,Math.round(image.height*scale));
+    const context=canvas.getContext("2d");
+    context.drawImage(image,0,0,canvas.width,canvas.height);
+    resolve(canvas.toDataURL("image/jpeg",0.72));
+   };
+   image.src=reader.result;
+  };
+  reader.readAsDataURL(file);
+ });
+}
+
+async function saveProduct(){
  const name=document.getElementById("pName").value.trim();
  const price=Number(document.getElementById("pPrice").value);
  const cat=document.getElementById("pCategory").value;
- const img=document.getElementById("pImage").value.trim();
+ let img=document.getElementById("pImage").value.trim();
+ const selectedFile=document.getElementById("pImageFile").files[0];
 
  if(!name||!Number.isFinite(price)||price<=0){
   alert("Enter a product name and a valid price.");
   return;
  }
 
- if(img && !/^https?:\/\//i.test(img)){
-  alert("Please enter an image URL starting with https:// or http://");
+ if(selectedFile){
+  try{
+   img=await compressImage(selectedFile);
+  }catch(error){
+   alert("Unable to use that image. Please choose another picture.");
+   return;
+  }
+ }
+
+ if(img && !/^https?:\/\//i.test(img) && !/^data:image\//i.test(img)){
+  alert("Please paste a valid image address or choose an image file.");
   return;
  }
 
@@ -509,7 +592,16 @@ function editProduct(id){
  document.getElementById("pName").value=p.name;
  document.getElementById("pPrice").value=p.price;
  document.getElementById("pCategory").value=p.category;
- document.getElementById("pImage").value=p.img||"";
+ document.getElementById("pImage").value=(p.img && /^https?:\/\//i.test(p.img))?p.img:"";
+ document.getElementById("pImageFile").value="";
+ const preview=document.getElementById("imagePreview");
+ if(p.img){
+  preview.src=imageUrl(p.img);
+  preview.style.display="block";
+ }else{
+  preview.src="";
+  preview.style.display="none";
+ }
  window.scrollTo(0,0);
 }
 
