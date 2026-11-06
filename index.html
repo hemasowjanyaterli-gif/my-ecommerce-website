@@ -5,17 +5,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HESA Shopping Store</title>
-
-<style>
-*{box-sizing:border-box}
-body{
-  margin:0;font-family:Arial,sans-serif;
-  background:#eaf3ff;color:#26364a;
-}
-body:before{
-  content:"";position:fixed;inset:0;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #26364a;
+  background-color: #eaf3ff;
   background-image:
-  linear-gradient(rgba(234,243,255,0.78), rgba(234,243,255,0.78)),
+    linear-gradient(
+      rgba(234,243,255,0.78),
+      rgba(234,243,255,0.78)
+    ),
+    url("./hesa-hands.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
   url("hesa-hands.png");
   opacity:.22;pointer-events:none;z-index:-1;
 }
