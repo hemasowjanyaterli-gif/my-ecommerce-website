@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,36 +8,140 @@
 
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#fff5f8;color:#333}
-header{background:#e94e86;color:white;padding:17px 5%;display:flex;
-justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#eaf3ff;
+  color:#26364a;
+  position:relative;
+  min-height:100vh;
+}
+
+/* BLUE THEME + HANDS BACKGROUND */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:url("hands.png");
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size:min(75vw,620px) auto;
+  opacity:.28;
+  pointer-events:none;
+  z-index:-1;
+}
+
+header{
+  background:#245da5;
+  color:white;
+  padding:17px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
 .logo{font-size:25px;font-weight:bold;cursor:pointer}
-button{border:0;padding:11px 16px;border-radius:8px;cursor:pointer;
-background:#e94e86;color:white;font-weight:bold}
-button:hover{opacity:.85}
-input,select{padding:12px;border:1px solid #ddd;border-radius:8px;
-font-size:15px;max-width:100%}
+
+button{
+  border:0;
+  padding:11px 16px;
+  border-radius:8px;
+  cursor:pointer;
+  background:#2868b5;
+  color:white;
+  font-weight:bold;
+}
+
+button:hover{background:#174b8a}
+
+input,select{
+  padding:12px;
+  border:1px solid #c5d8ef;
+  border-radius:8px;
+  font-size:15px;
+  max-width:100%;
+}
+
+input:focus,select:focus{outline:2px solid #8bb8ed}
+
 .container{padding:25px 5%}
 .hidden{display:none!important}
-.center{max-width:430px;margin:65px auto;background:white;padding:30px;
-border-radius:15px;box-shadow:0 3px 18px #ddd;text-align:center}
+
+.center{
+  max-width:430px;
+  margin:65px auto;
+  background:rgba(255,255,255,.96);
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 3px 18px #b9cde5;
+  text-align:center;
+}
+
 .center input{width:100%;margin:9px 0}
+
 .tools{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
 .tools input{flex:1;min-width:180px}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}
-.card{background:white;border-radius:13px;padding:13px;box-shadow:0 2px 12px #eadce2}
-.card img{width:100%;height:190px;object-fit:cover;border-radius:10px}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:rgba(255,255,255,.97);
+  border-radius:13px;
+  padding:13px;
+  box-shadow:0 2px 12px #cbdced;
+}
+
+.card img{
+  width:100%;
+  height:190px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
 .card h3{margin:10px 0 5px}
-.price{color:#e94e86;font-weight:bold;font-size:19px}
-.heart{background:#ffe4ed;color:#d92e70;font-size:19px;float:right;padding:6px 10px}
+.price{color:#205da5;font-weight:bold;font-size:19px}
+
+.heart{
+  background:#e4efff;
+  color:#205da5;
+  font-size:19px;
+  float:right;
+  padding:6px 10px;
+}
+
 .stars{color:#f4a900;margin:7px 0}
 .card button{margin:4px 2px}
-.panel{background:white;padding:20px;border-radius:12px;margin:20px 0}
+
+.panel{
+  background:rgba(255,255,255,.97);
+  padding:20px;
+  border-radius:12px;
+  margin:20px 0;
+  box-shadow:0 2px 10px #cbdced;
+}
+
 .panel input,.panel select{margin:5px}
-footer{text-align:center;padding:25px;color:#777}
-#message{background:white;padding:30px;border-radius:15px;
-max-width:520px;margin:40px auto;text-align:center;box-shadow:0 2px 15px #ddd}
-#message h2{color:#e94e86}
+
+footer{text-align:center;padding:25px;color:#526b88}
+
+#message{
+  background:rgba(255,255,255,.97);
+  padding:30px;
+  border-radius:15px;
+  max-width:520px;
+  margin:40px auto;
+  text-align:center;
+  box-shadow:0 2px 15px #cbdced;
+}
+
+#message h2{color:#245da5}
 .small{font-size:13px;color:#777}
 </style>
 </head>
@@ -44,9 +149,9 @@ max-width:520px;margin:40px auto;text-align:center;box-shadow:0 2px 15px #ddd}
 <body>
 
 <header>
-  <div class="logo" onclick="ownerAccess()">💗 HESA Shopping Store</div>
+  <div class="logo" onclick="ownerAccess()">💙 HESA Shopping Store</div>
   <div id="headerButtons" class="hidden">
-    <button onclick="showWishlist()">❤️ Wishlist</button>
+    <button onclick="showWishlist()">💙 Wishlist</button>
     <button onclick="showCart()">🛒 Cart (<span id="cartCount">0</span>)</button>
     <button onclick="logout()">Logout</button>
   </div>
@@ -54,7 +159,7 @@ max-width:520px;margin:40px auto;text-align:center;box-shadow:0 2px 15px #ddd}
 
 <!-- CUSTOMER LOGIN -->
 <section id="loginScreen" class="center">
-  <h1>Welcome to HESA 💗</h1>
+  <h1>Welcome to HESA 💙</h1>
   <p>Please login to continue shopping</p>
   <input id="customerName" placeholder="Enter your name">
   <input id="customerEmail" type="email" placeholder="Enter your email">
@@ -93,7 +198,7 @@ max-width:520px;margin:40px auto;text-align:center;box-shadow:0 2px 15px #ddd}
 
 <!-- WISHLIST -->
 <section id="wishlistPage" class="container hidden">
-  <h2>❤️ My Wishlist</h2>
+  <h2>💙 My Wishlist</h2>
   <button onclick="backToStore()">Continue Shopping</button>
   <div id="wishlistArea" class="products" style="margin-top:20px"></div>
 </section>
@@ -111,17 +216,17 @@ max-width:520px;margin:40px auto;text-align:center;box-shadow:0 2px 15px #ddd}
 <section id="orderPage" class="hidden">
   <div id="message">
     <h2>🎉 Thank You for Shopping!</h2>
-    <h3>Your order has been recorded successfully.</h3>
+    <h3>Your demo order has been recorded successfully.</h3>
     <p id="orderNumber"></p>
     <p id="deliveryDate"></p>
-    <p>Thank you for choosing HESA Shopping Store. Have a wonderful day! 💗</p>
+    <p>Thank you for choosing HESA Shopping Store. Have a wonderful day! 💙</p>
     <button onclick="backToStore()">Continue Shopping</button>
   </div>
 </section>
 
 <!-- OWNER DASHBOARD -->
 <section id="adminPage" class="container hidden">
-  <h2>💗 HESA Owner Dashboard</h2>
+  <h2>💙 HESA Owner Dashboard</h2>
   <p>Welcome, Owner!</p>
   <button onclick="logoutAdmin()" style="background:#555">Owner Logout</button>
 
@@ -146,27 +251,20 @@ max-width:520px;margin:40px auto;text-align:center;box-shadow:0 2px 15px #ddd}
   </div>
 </section>
 
-<footer>© 2026 HESA Shopping Store | Happy Shopping 💗</footer>
+<footer>© 2026 HESA Shopping Store | Happy Shopping 💙</footer>
 
 <script>
 
-// ===================================
 // OWNER LOGIN SETTINGS
-// ===================================
-
 const ADMIN_NAME = "hesa";
 const ADMIN_PASSWORD = "CHANGE_THIS_TO_A_NEW_DEMO_PASSWORD";
 
-// Change the password above before sharing your demo.
-// This is a demo-only password, not secure authentication.
-
-let ownerClicks = 0;
+let ownerClicks=0;
 let ownerTimer;
 
 function ownerAccess(){
   ownerClicks++;
   clearTimeout(ownerTimer);
-
   ownerTimer=setTimeout(()=>ownerClicks=0,1800);
 
   if(ownerClicks>=5){
@@ -199,10 +297,7 @@ function logoutAdmin(){
   document.getElementById("loginScreen").classList.remove("hidden");
 }
 
-// ===================================
 // SAMPLE PRODUCTS
-// ===================================
-
 const defaultProducts=[
  {id:1,name:"Pink Dress",price:899,category:"Fashion",image:"https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=600"},
  {id:2,name:"Blue Jeans",price:999,category:"Fashion",image:"https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600"},
@@ -226,15 +321,12 @@ const defaultProducts=[
  {id:20,name:"Bracelet",price:299,category:"Accessories",image:"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600"}
 ];
 
-let products=JSON.parse(localStorage.getItem("hesaProducts")) || defaultProducts;
-let cart=JSON.parse(localStorage.getItem("hesaCart")) || [];
-let wishlist=JSON.parse(localStorage.getItem("hesaWishlist")) || [];
-let currentUser=JSON.parse(sessionStorage.getItem("hesaUser")) || null;
+let products=JSON.parse(localStorage.getItem("hesaProducts"))||defaultProducts;
+let cart=JSON.parse(localStorage.getItem("hesaCart"))||[];
+let wishlist=JSON.parse(localStorage.getItem("hesaWishlist"))||[];
+let currentUser=JSON.parse(sessionStorage.getItem("hesaUser"))||null;
 
-// ===================================
 // GENERAL FUNCTIONS
-// ===================================
-
 function saveData(){
   localStorage.setItem("hesaProducts",JSON.stringify(products));
   localStorage.setItem("hesaCart",JSON.stringify(cart));
@@ -252,7 +344,7 @@ function login(){
   const name=document.getElementById("customerName").value.trim();
   const email=document.getElementById("customerEmail").value.trim();
 
-  if(!name || !email || !email.includes("@")){
+  if(!name||!email||!email.includes("@")){
     alert("Please enter your name and a valid email.");
     return;
   }
@@ -278,22 +370,19 @@ function showStore(){
   document.getElementById("store").classList.remove("hidden");
   document.getElementById("headerButtons").classList.remove("hidden");
   document.getElementById("welcome").innerText=
-    "Hello, "+currentUser.name+"! Welcome to HESA 💗";
+    "Hello, "+currentUser.name+"! Welcome to HESA 💙";
   renderProducts();
   updateCartCount();
 }
 
-// ===================================
 // PRODUCTS
-// ===================================
-
 function renderProducts(){
   const search=document.getElementById("search").value.toLowerCase();
   const category=document.getElementById("category").value;
 
   const filtered=products.filter(p=>
-    p.name.toLowerCase().includes(search) &&
-    (category==="All" || p.category===category)
+    p.name.toLowerCase().includes(search)&&
+    (category==="All"||p.category===category)
   );
 
   const area=document.getElementById("productArea");
@@ -306,11 +395,10 @@ function renderProducts(){
 
   filtered.forEach(p=>{
     const liked=wishlist.includes(p.id);
-
     area.innerHTML+=`
       <div class="card">
         <button class="heart" onclick="toggleWishlist(${p.id})">
-          ${liked?"❤️":"🤍"}
+          ${liked?"💙":"🤍"}
         </button>
         <img src="${p.image}" alt="${p.name}"
           onerror="this.src='https://placehold.co/400x300?text=HESA+Product'">
@@ -323,10 +411,7 @@ function renderProducts(){
   });
 }
 
-// ===================================
 // WISHLIST
-// ===================================
-
 function toggleWishlist(id){
   if(!currentUser){
     alert("Please login first!");
@@ -348,6 +433,7 @@ function showWishlist(){
 
   hideAll();
   document.getElementById("wishlistPage").classList.remove("hidden");
+
   const area=document.getElementById("wishlistArea");
   area.innerHTML="";
 
@@ -371,10 +457,7 @@ function showWishlist(){
   });
 }
 
-// ===================================
 // CART
-// ===================================
-
 function addToCart(id){
   if(!currentUser){
     alert("Please login first!");
@@ -383,11 +466,8 @@ function addToCart(id){
 
   const item=cart.find(x=>x.id===id);
 
-  if(item){
-    item.qty++;
-  }else{
-    cart.push({id,qty:1});
-  }
+  if(item){item.qty++;}
+  else{cart.push({id,qty:1});}
 
   saveData();
   updateCartCount();
@@ -453,10 +533,7 @@ function removeCart(id){
   showCart();
 }
 
-// ===================================
 // CHECKOUT - DEMO ONLY
-// ===================================
-
 function checkout(){
   if(cart.length===0){
     alert("Your cart is empty!");
@@ -491,10 +568,7 @@ function checkout(){
   updateCartCount();
 }
 
-// ===================================
 // CONTINUE SHOPPING
-// ===================================
-
 function backToStore(){
   if(!currentUser){
     hideAll();
@@ -504,17 +578,14 @@ function backToStore(){
   showStore();
 }
 
-// ===================================
 // OWNER PRODUCT MANAGEMENT
-// ===================================
-
 function addProduct(){
   const name=document.getElementById("newName").value.trim();
   const price=Number(document.getElementById("newPrice").value);
   const category=document.getElementById("newCategory").value;
   const file=document.getElementById("newImage").files[0];
 
-  if(!name || !price || price<=0 || !file){
+  if(!name||!price||price<=0||!file){
     alert("Please enter product details and choose a picture.");
     return;
   }
@@ -566,7 +637,7 @@ function editProduct(id){
 
   const newPrice=prompt("Enter new price:",p.price);
 
-  if(newPrice!==null && Number(newPrice)>0){
+  if(newPrice!==null&&Number(newPrice)>0){
     p.price=Number(newPrice);
     saveData();
     renderAdmin();
@@ -584,10 +655,7 @@ function deleteProduct(id){
   renderAdmin();
 }
 
-// ===================================
 // START WEBSITE
-// ===================================
-
 if(currentUser){
   showStore();
 }else{
