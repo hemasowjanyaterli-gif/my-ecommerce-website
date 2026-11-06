@@ -7,17 +7,18 @@
 
 <style>
 :root{
- --pink:#d94f7b;
- --dark:#24212a;
- --light:#fff7f9;
- --muted:#777;
- --border:#eee;
+ --pink:#2563eb;
+ --dark:#172554;
+ --light:#eff6ff;
+ --muted:#64748b;
+ --border:#dbeafe;
  --gold:#e3a32b;
+ --blue:#2563eb;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{
  font-family:Arial,Helvetica,sans-serif;
- background:#fff;
+ background:#f8fbff;
  color:var(--dark);
 }
 button{cursor:pointer;font-family:inherit}
@@ -26,53 +27,59 @@ header{
  display:flex;align-items:center;justify-content:space-between;
  gap:15px;flex-wrap:wrap;padding:17px 5%;
  background:white;position:sticky;top:0;z-index:10;
- box-shadow:0 3px 15px #0000000c;
+ box-shadow:0 3px 15px #1e40af12;
 }
-.logo{font-size:25px;font-weight:900;color:var(--pink);letter-spacing:1px}
+.logo{font-size:25px;font-weight:900;color:var(--blue);letter-spacing:1px}
 .logo span{color:var(--dark);font-weight:500;font-size:19px}
 .search-box{flex:1;max-width:420px;position:relative}
 .search-box input{
- width:100%;padding:13px 18px;border:1px solid #eee;
- border-radius:30px;background:#fafafa;font-size:14px;outline:none;
+ width:100%;padding:13px 18px;border:1px solid var(--border);
+ border-radius:30px;background:#f8fbff;font-size:14px;outline:none;
 }
-.search-box input:focus{border-color:var(--pink)}
+.search-box input:focus{border-color:var(--blue)}
 .header-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
 .btn{
- background:var(--pink);color:white;border:0;
+ background:var(--blue);color:white;border:0;
  padding:11px 16px;border-radius:25px;font-weight:bold;
  transition:.2s;
 }
-.btn:hover{background:#b93765;transform:translateY(-1px)}
+.btn:hover{background:#1d4ed8;transform:translateY(-1px)}
 .outline-btn{
- background:white;color:var(--dark);border:1px solid #eee;
+ background:white;color:var(--dark);border:1px solid var(--border);
  padding:10px 14px;border-radius:25px;font-weight:bold;
 }
-.outline-btn:hover{border-color:var(--pink);color:var(--pink)}
-.account-info{text-align:center;color:var(--pink);font-size:13px;padding:8px}
+.outline-btn:hover{border-color:var(--blue);color:var(--blue)}
+.account-info{text-align:center;color:var(--blue);font-size:13px;padding:8px}
 .navbar{
  display:flex;justify-content:center;gap:30px;padding:13px;
- border-top:1px solid #f5f5f5;border-bottom:1px solid #f5f5f5;
+ border-top:1px solid #eff6ff;border-bottom:1px solid #eff6ff;
  background:white;
 }
-.navbar a{font-size:13px;font-weight:bold;color:#555}
-.navbar a:hover{color:var(--pink)}
+.navbar a{font-size:13px;font-weight:bold;color:#475569}
+.navbar a:hover{color:var(--blue)}
+
+/* BLUE HERO WITH HESA HAND ILLUSTRATION */
 .hero{
  margin:25px 5%;min-height:390px;border-radius:22px;
- background:linear-gradient(110deg,#f9dce6,#fcefe5);
+ background:
+ linear-gradient(100deg,rgba(239,246,255,.97) 5%,rgba(219,234,254,.83) 65%,rgba(191,219,254,.65)),
+ url("hesa-hands.png");
+ background-repeat:no-repeat;
+ background-position:center,right center;
+ background-size:cover,auto 95%;
  display:flex;align-items:center;justify-content:space-between;
  overflow:hidden;padding:45px 7%;gap:25px;
 }
-.hero-content{max-width:520px}
+.hero-content{max-width:520px;position:relative;z-index:2}
 .hero-label{
- display:inline-block;background:white;color:var(--pink);
+ display:inline-block;background:white;color:var(--blue);
  border-radius:20px;padding:8px 15px;font-size:12px;
  font-weight:bold;letter-spacing:1px;margin-bottom:18px;
 }
 .hero h1{font-size:clamp(35px,5vw,58px);line-height:1.12;margin-bottom:17px}
-.hero h1 span{color:var(--pink)}
-.hero p{color:#655c60;line-height:1.8;font-size:16px}
+.hero h1 span{color:var(--blue)}
+.hero p{color:#475569;line-height:1.8;font-size:16px}
 .hero .btn{margin-top:23px;padding:14px 25px}
-.hero-image{width:43%;max-width:420px;max-height:320px;object-fit:cover;border-radius:20px}
 .section{padding:30px 5%}
 .section-heading{
  display:flex;justify-content:space-between;align-items:end;
@@ -80,7 +87,7 @@ header{
 }
 .section-heading h2{font-size:27px}
 .section-heading p{font-size:13px;color:var(--muted);margin-top:7px}
-.text-link{color:var(--pink);font-weight:bold;font-size:13px}
+.text-link{color:var(--blue);font-weight:bold;font-size:13px}
 .promo-grid{
  display:grid;grid-template-columns:repeat(3,1fr);
  gap:18px;padding:10px 5% 25px;
@@ -88,12 +95,12 @@ header{
 .promo{
  min-height:145px;padding:23px;border-radius:15px;
  display:flex;flex-direction:column;justify-content:center;
- background:#fce8ee;
+ background:#eff6ff;
 }
-.promo:nth-child(2){background:#f2edff}
-.promo:nth-child(3){background:#eaf5ed}
+.promo:nth-child(2){background:#e0edff}
+.promo:nth-child(3){background:#e8f3ff}
 .promo h3{font-size:19px;margin-bottom:8px}
-.promo p{font-size:13px;color:#666;line-height:1.5}
+.promo p{font-size:13px;color:#64748b;line-height:1.5}
 .promo span{font-size:27px;margin-bottom:8px}
 .category-grid{
  display:grid;grid-template-columns:repeat(6,1fr);gap:15px;
@@ -104,33 +111,33 @@ header{
  transition:.2s;
 }
 .category-card:hover{
- transform:translateY(-4px);border-color:var(--pink);
- box-shadow:0 8px 20px #d94f7b15;
+ transform:translateY(-4px);border-color:var(--blue);
+ box-shadow:0 8px 20px #2563eb15;
 }
 .category-icon{font-size:30px;margin-bottom:9px}
 .category-card b{font-size:13px}
 .category-card small{display:block;color:var(--muted);margin-top:5px;font-size:11px}
 .filter-row{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:22px}
 .filter-row button{
- background:white;border:1px solid #eee;padding:10px 17px;
- border-radius:22px;color:#555;font-size:13px;
+ background:white;border:1px solid var(--border);padding:10px 17px;
+ border-radius:22px;color:#475569;font-size:13px;
 }
 .filter-row button.active,.filter-row button:hover{
- background:var(--pink);color:white;border-color:var(--pink);
+ background:var(--blue);color:white;border-color:var(--blue);
 }
 .products{
  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;
 }
 .card{
- background:white;border:1px solid #f0edf0;border-radius:15px;
+ background:white;border:1px solid #e5edfa;border-radius:15px;
  overflow:hidden;position:relative;transition:.25s;
 }
-.card:hover{transform:translateY(-5px);box-shadow:0 12px 25px #00000010}
-.product-image{height:220px;background:#faf6f7;position:relative}
+.card:hover{transform:translateY(-5px);box-shadow:0 12px 25px #1e40af12}
+.product-image{height:220px;background:#eff6ff;position:relative}
 .product-image img{width:100%;height:100%;object-fit:cover}
 .product-tag{
  position:absolute;left:11px;top:11px;background:#fff;
- color:var(--pink);padding:6px 10px;border-radius:15px;
+ color:var(--blue);padding:6px 10px;border-radius:15px;
  font-size:10px;font-weight:bold;
 }
 .heart{
@@ -140,9 +147,9 @@ header{
 }
 .product-info{padding:15px}
 .product-info h3{font-size:15px;min-height:36px;line-height:1.4}
-.product-category{font-size:11px;color:#999;margin-top:5px}
+.product-category{font-size:11px;color:#94a3b8;margin-top:5px}
 .price-row{display:flex;align-items:center;gap:8px;margin:11px 0}
-.price{color:var(--pink);font-weight:bold;font-size:18px}
+.price{color:var(--blue);font-weight:bold;font-size:18px}
 .old-price{font-size:12px;color:#aaa;text-decoration:line-through}
 .rating{font-size:13px;color:var(--gold);margin:8px 0}
 .rating button{border:0;background:none;color:var(--gold);font-size:18px;padding:0 1px}
@@ -151,31 +158,31 @@ header{
  width:100%;padding:11px;border:0;border-radius:8px;
  background:var(--dark);color:white;font-weight:bold;margin-top:7px;
 }
-.add-btn:hover{background:var(--pink)}
+.add-btn:hover{background:var(--blue)}
 .empty{grid-column:1/-1;text-align:center;padding:35px;color:#888}
 .newsletter{
  margin:35px 5%;padding:35px 20px;text-align:center;
- border-radius:18px;background:#fff0f4;
+ border-radius:18px;background:#eff6ff;
 }
 .newsletter h2{font-size:25px;margin-bottom:10px}
-.newsletter p{font-size:13px;color:#777;line-height:1.6}
+.newsletter p{font-size:13px;color:#64748b;line-height:1.6}
 .newsletter input{
- padding:13px 15px;border:1px solid #eee;border-radius:25px;
+ padding:13px 15px;border:1px solid var(--border);border-radius:25px;
  width:min(280px,65%);margin-top:18px;
 }
 .newsletter button{margin-left:5px}
-footer{background:#24212a;color:white;padding:40px 5% 20px}
+footer{background:#172554;color:white;padding:40px 5% 20px}
 .footer-grid{
  display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px;
 }
-footer h3{color:#ff8eae;margin-bottom:13px}
-footer p,footer a{font-size:13px;color:#ccc;line-height:2}
+footer h3{color:#93c5fd;margin-bottom:13px}
+footer p,footer a{font-size:13px;color:#dbeafe;line-height:2}
 .footer-bottom{
- border-top:1px solid #444;margin-top:25px;padding-top:18px;
- text-align:center;color:#aaa;font-size:12px;
+ border-top:1px solid #334c83;margin-top:25px;padding-top:18px;
+ text-align:center;color:#bfdbfe;font-size:12px;
 }
 .panel{
- display:none;position:fixed;inset:0;background:#fffafa;
+ display:none;position:fixed;inset:0;background:#f8fbff;
  z-index:30;overflow:auto;padding:25px;
 }
 .panel-box{max-width:720px;margin:0 auto}
@@ -185,20 +192,20 @@ footer p,footer a{font-size:13px;color:#ccc;line-height:2}
 }
 .cart-item{
  display:flex;align-items:center;justify-content:space-between;
- gap:12px;padding:15px 0;border-bottom:1px solid #eee;
+ gap:12px;padding:15px 0;border-bottom:1px solid var(--border);
 }
-.cart-item button{border:0;background:#f4edf0;padding:7px 11px;border-radius:6px}
+.cart-item button{border:0;background:#eff6ff;padding:7px 11px;border-radius:6px}
 .total{font-size:22px;font-weight:bold;margin:23px 0}
 .full-btn{
  width:100%;padding:14px;border:0;border-radius:9px;
- background:var(--pink);color:white;font-weight:bold;
+ background:var(--blue);color:white;font-weight:bold;
 }
 .modal-card{
  max-width:430px;margin:55px auto;background:white;
  padding:27px;border-radius:17px;box-shadow:0 5px 30px #0002;
 }
 .admin-input,.login-input{
- width:100%;padding:13px;border:1px solid #ddd;
+ width:100%;padding:13px;border:1px solid #cbdcf5;
  border-radius:8px;margin:8px 0;font-size:14px;
 }
 .admin-product{
@@ -213,7 +220,6 @@ footer p,footer a{font-size:13px;color:#ccc;line-height:2}
 @media(max-width:900px){
  .products{grid-template-columns:repeat(3,minmax(0,1fr))}
  .category-grid{grid-template-columns:repeat(3,1fr)}
- .hero-image{width:38%}
 }
 @media(max-width:600px){
  header{justify-content:center;padding:13px 4%}
@@ -221,8 +227,12 @@ footer p,footer a{font-size:13px;color:#ccc;line-height:2}
  .search-box{max-width:none;flex-basis:100%}
  .header-actions{justify-content:center}
  .navbar{gap:16px;flex-wrap:wrap}
- .hero{margin:15px 4%;padding:30px 20px;text-align:center;justify-content:center}
- .hero-image{width:85%;max-height:190px}
+ .hero{
+  margin:15px 4%;padding:30px 20px;text-align:center;
+  justify-content:center;background-position:center,right center;
+  background-size:cover,auto 65%;
+ }
+ .hero-content{background:rgba(239,246,255,.65);padding:12px;border-radius:12px}
  .promo-grid{grid-template-columns:1fr;padding:10px 4%}
  .section{padding:25px 4%}
  .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
@@ -266,7 +276,6 @@ footer p,footer a{font-size:13px;color:#ccc;line-height:2}
  <a href="#footer">CONTACT</a>
 </nav>
 
-<!-- HERO BANNER -->
 <section class="hero" id="home">
  <div class="hero-content">
   <span class="hero-label">WELCOME TO HESA</span>
@@ -274,12 +283,8 @@ footer p,footer a{font-size:13px;color:#ccc;line-height:2}
   <p>Discover beautiful fashion, accessories, electronics and everyday essentials at affordable prices.</p>
   <button class="btn" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop Now →</button>
  </div>
- <img class="hero-image"
- src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800"
- alt="Shopping store">
 </section>
 
-<!-- PROMOTIONS -->
 <section class="promo-grid">
  <div class="promo">
   <span>🎁</span>
@@ -292,13 +297,12 @@ footer p,footer a{font-size:13px;color:#ccc;line-height:2}
   <p>Discover fresh products added to our store.</p>
  </div>
  <div class="promo">
-  <span>💗</span>
+  <span>💙</span>
   <h3>Happy Shopping</h3>
   <p>Find your favourite products in one place.</p>
  </div>
 </section>
 
-<!-- CATEGORIES -->
 <section class="section" id="categories">
  <div class="section-heading">
   <div>
@@ -329,7 +333,6 @@ footer p,footer a{font-size:13px;color:#ccc;line-height:2}
  </div>
 </section>
 
-<!-- NEW ARRIVALS -->
 <section class="section" id="newArrivals">
  <div class="section-heading">
   <div>
@@ -341,7 +344,6 @@ footer p,footer a{font-size:13px;color:#ccc;line-height:2}
  <div class="products" id="newProducts"></div>
 </section>
 
-<!-- MAIN SHOP -->
 <section class="section" id="shop">
  <div class="section-heading">
   <div>
@@ -363,7 +365,6 @@ footer p,footer a{font-size:13px;color:#ccc;line-height:2}
  <div class="products" id="products"></div>
 </section>
 
-<!-- NEWSLETTER DEMO -->
 <section class="newsletter">
  <h2>Stay Updated with HESA 💌</h2>
  <p>Discover new collections and shopping updates.</p>
@@ -395,10 +396,9 @@ footer p,footer a{font-size:13px;color:#ccc;line-height:2}
  <div class="footer-bottom">© 2026 HESA Shopping Store. All rights reserved.</div>
 </footer>
 
-<!-- LOGIN PANEL -->
 <div class="panel" id="loginPanel">
  <div class="modal-card">
-  <h2 style="text-align:center;margin-bottom:12px">Welcome to HESA ❤️</h2>
+  <h2 style="text-align:center;margin-bottom:12px">Welcome to HESA 💙</h2>
   <p style="text-align:center;color:#777;font-size:13px">Enter your details to continue.</p>
   <input id="customerName" class="login-input" placeholder="Your name">
   <input id="customerEmail" class="login-input" type="email" placeholder="Email address">
@@ -408,7 +408,6 @@ footer p,footer a{font-size:13px;color:#ccc;line-height:2}
  </div>
 </div>
 
-<!-- CART PANEL -->
 <div class="panel" id="cartPanel">
  <div class="panel-box">
   <div class="panel-head">
@@ -422,7 +421,6 @@ footer p,footer a{font-size:13px;color:#ccc;line-height:2}
  </div>
 </div>
 
-<!-- ADMIN PANEL -->
 <div class="panel" id="adminPanel">
  <div class="panel-box">
   <div class="panel-head">
@@ -658,7 +656,7 @@ function updateAccount(){
  if(customer){
   button.textContent="Logout";
   button.onclick=logout;
-  welcome.textContent="Welcome, "+customer.name+"! Happy Shopping ❤️";
+  welcome.textContent="Welcome, "+customer.name+"! Happy Shopping 💙";
  }else{
   button.textContent="👤 Login";
   button.onclick=openLogin;
