@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +24,7 @@ header{
  background:white;position:sticky;top:0;z-index:10;
  box-shadow:0 3px 15px #0000000c
 }
-.logo{font-size:25px;font-weight:900;color:var(--blue);letter-spacing:1px}
+.logo{font-size:25px;font-weight:900;color:var(--blue);letter-spacing:1px;cursor:pointer}
 .logo span{color:var(--dark);font-weight:500;font-size:19px}
 .search-box{flex:1;max-width:420px}
 .search-box input{
@@ -231,14 +230,13 @@ footer p,footer a{font-size:13px;color:#cbd5e1;line-height:2}
 <body>
 
 <header>
- <div class="logo">HESA <span>Shopping Store</span> 🛍️</div>
+ <div class="logo" onclick="ownerAccess()" title="HESA Shopping Store">HESA <span>Shopping Store</span> 🛍️</div>
  <div class="search-box">
   <input id="search" placeholder="Search for products..." oninput="renderAll()">
  </div>
  <div class="header-actions">
   <button class="outline-btn" id="loginButton" onclick="openLogin()">👤 Login</button>
   <button class="outline-btn" onclick="showWishlist()">♡ Wishlist <span id="wishCount">0</span></button>
-  <button class="outline-btn" onclick="openAdmin()">⚙️ Admin</button>
   <button class="btn" onclick="openCart()">🛒 Cart <span id="count">0</span></button>
  </div>
 </header>
@@ -333,6 +331,17 @@ footer p,footer a{font-size:13px;color:#cbd5e1;line-height:2}
  </div>
 </div>
 
+<!-- OWNER LOGIN: opened by clicking the HESA logo five times -->
+<div class="panel" id="ownerLoginPanel">
+ <div class="modal-card">
+  <h2 style="text-align:center;margin-bottom:12px">HESA Owner Login 🔐</h2>
+  <p style="text-align:center;color:#777;font-size:13px">Admin: <b>hesa</b></p>
+  <input id="ownerPassword" class="login-input" type="password" placeholder="Enter owner password" autocomplete="off">
+  <button class="full-btn" onclick="ownerLogin()">Login as Owner</button>
+  <button class="outline-btn" style="width:100%;margin-top:10px" onclick="closeOwnerLogin()">Cancel</button>
+ </div>
+</div>
+
 <div class="panel" id="cartPanel">
  <div class="panel-box">
   <div class="panel-head"><h2>🛒 Your Shopping Cart</h2><button class="outline-btn" onclick="closeCart()">✕ Close</button></div>
@@ -362,7 +371,13 @@ footer p,footer a{font-size:13px;color:#cbd5e1;line-height:2}
 
 <div class="panel" id="adminPanel">
  <div class="panel-box">
-  <div class="panel-head"><h2>⚙️ Admin Dashboard</h2><button class="outline-btn" onclick="closeAdmin()">✕ Close</button></div>
+  <div class="panel-head">
+   <h2>⚙️ Admin Dashboard — hesa</h2>
+   <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <button class="outline-btn" onclick="closeAdmin()">✕ Close</button>
+    <button class="btn" onclick="logoutAdmin()">Owner Logout</button>
+   </div>
+  </div>
   <h3 style="margin:20px 0 10px">Add / Edit Product</h3>
   <input id="pName" class="admin-input" placeholder="Product name">
   <input id="pPrice" class="admin-input" type="number" min="1" placeholder="Price in ₹">
@@ -411,6 +426,49 @@ const defaultProducts=[
 {id:19,name:"Tote Bag",price:149,category:"Accessories",img:"https://images.unsplash.com/photo-1544816155-12df9643f363?w=500"},
 {id:20,name:"Desk Lamp",price:299,category:"Home",img:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500"}
 ];
+
+// OWNER LOGIN SETTINGS
+const ADMIN_NAME="hesa";
+const ADMIN_PASSWORD="hesa@2005";
+let ownerAuthenticated=false;
+let ownerTapCount=0;
+let ownerTapTimer=null;
+
+function ownerAccess(){
+ ownerTapCount++;
+ if(ownerTapCount>=5){
+  ownerTapCount=0;
+  clearTimeout(ownerTapTimer);
+  openAdmin();
+  return;
+ }
+ clearTimeout(ownerTapTimer);
+ ownerTapTimer=setTimeout(()=>{ownerTapCount=0},1800);
+}
+
+function closeOwnerLogin(){
+ document.getElementById("ownerLoginPanel").style.display="none";
+ document.getElementById("ownerPassword").value="";
+}
+function ownerLogin(){
+ const entered=document.getElementById("ownerPassword").value;
+ if(entered!==ADMIN_PASSWORD){
+  alert("Incorrect owner password.");
+  return;
+ }
+ ownerAuthenticated=true;
+ closeOwnerLogin();
+ document.getElementById("adminPanel").style.display="block";
+ showAdminProducts();
+}
+function logoutAdmin(){
+ ownerAuthenticated=false;
+ document.getElementById("adminPanel").style.display="none";
+ closeOwnerLogin();
+ clearForm();
+ renderAll();
+ alert("Owner logged out.");
+}
 
 function loadData(key,fallback){
  try{
@@ -627,6 +685,12 @@ function sendDemoSMS(){
 
 // ADMIN
 function openAdmin(){
+ if(!ownerAuthenticated){
+  document.getElementById("ownerLoginPanel").style.display="block";
+  document.getElementById("ownerPassword").value="";
+  document.getElementById("ownerPassword").focus();
+  return;
+ }
  document.getElementById("adminPanel").style.display="block";
  showAdminProducts();
 }
