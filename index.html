@@ -5,6 +5,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HESA Shopping Store</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -12,79 +18,209 @@ body {
   background-color: #eaf3ff;
   background-image:
     linear-gradient(
-      rgba(234,243,255,0.78),
-      rgba(234,243,255,0.78)
+      rgba(234,243,255,0.65),
+      rgba(234,243,255,0.65)
     ),
     url("./hesa-hands.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  min-height: 100vh;
 }
-  url("hesa-hands.png");
-  opacity:.22;pointer-events:none;z-index:-1;
+
+header {
+  background: #245da5;
+  color: white;
+  padding: 17px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
-header{
-  background:#245da5;color:white;padding:17px 5%;
-  display:flex;justify-content:space-between;
-  align-items:center;flex-wrap:wrap;gap:12px;
+
+.logo {
+  font-size: 25px;
+  font-weight: bold;
 }
-.logo{font-size:25px;font-weight:bold}
-button{
-  border:0;padding:11px 16px;border-radius:8px;
-  cursor:pointer;background:#2868b5;color:white;font-weight:bold;
-  margin:3px;
+
+button {
+  border: 0;
+  padding: 11px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #2868b5;
+  color: white;
+  font-weight: bold;
+  margin: 3px;
 }
-button:hover{background:#174b8a}
-input,select{
-  padding:12px;border:1px solid #c5d8ef;
-  border-radius:8px;font-size:15px;max-width:100%;
+
+button:hover {
+  background: #174b8a;
 }
-.container{padding:25px 5%}
-.hidden{display:none!important}
-.center{
-  max-width:430px;margin:55px auto;background:white;
-  padding:30px;border-radius:15px;
-  box-shadow:0 3px 18px #b9cde5;text-align:center;
+
+input, select {
+  padding: 12px;
+  border: 1px solid #c5d8ef;
+  border-radius: 8px;
+  font-size: 15px;
+  max-width: 100%;
 }
-.center input{width:100%;margin:9px 0}
-.tools{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
-.tools input{flex:1;min-width:180px}
-.products{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:20px;
+
+.container {
+  padding: 25px 5%;
 }
-.card{
-  background:white;border-radius:13px;padding:13px;
-  box-shadow:0 2px 12px #cbdced;
+
+.hidden {
+  display: none !important;
 }
-.card img{
-  width:100%;height:190px;object-fit:cover;border-radius:10px;
+
+.center {
+  max-width: 430px;
+  margin: 55px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 3px 18px #b9cde5;
+  text-align: center;
 }
-.card h3{margin:10px 0 5px}
-.price{color:#205da5;font-weight:bold;font-size:19px}
-.heart{background:#e4efff;color:#205da5;font-size:19px;float:right}
-.stars{color:#f4a900;margin:7px 0}
-.panel{
-  background:white;padding:20px;border-radius:12px;
-  margin:20px 0;box-shadow:0 2px 10px #cbdced;
+
+.center input {
+  width: 100%;
+  margin: 9px 0;
 }
-.panel input,.panel select{margin:5px}
-footer{text-align:center;padding:25px;color:#526b88}
-#message{
-  background:white;padding:30px;border-radius:15px;
-  max-width:520px;margin:40px auto;text-align:center;
-  box-shadow:0 2px 15px #cbdced;
+
+.tools {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px 0;
 }
-#message h2{color:#245da5}
-.small{font-size:13px;color:#777}
-.admin-product{
-  display:flex;align-items:center;gap:15px;
-  flex-wrap:wrap;background:#f3f7ff;
-  padding:12px;margin:10px 0;border-radius:10px;
+
+.tools input {
+  flex: 1;
+  min-width: 180px;
 }
-.admin-product img{
-  width:85px;height:80px;object-fit:cover;border-radius:8px;
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 13px;
+  padding: 13px;
+  box-shadow: 0 2px 12px #cbdced;
+}
+
+.card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card h3 {
+  margin: 10px 0 5px;
+}
+
+.price {
+  color: #205da5;
+  font-weight: bold;
+  font-size: 19px;
+}
+
+.heart {
+  background: #e4efff;
+  color: #205da5;
+  font-size: 19px;
+  float: right;
+}
+
+.stars {
+  color: #f4a900;
+  margin: 7px 0;
+}
+
+.panel {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px 0;
+  box-shadow: 0 2px 10px #cbdced;
+}
+
+.panel input, .panel select {
+  margin: 5px;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #526b88;
+}
+
+#message {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 520px;
+  margin: 40px auto;
+  text-align: center;
+  box-shadow: 0 2px 15px #cbdced;
+}
+
+#message h2 {
+  color: #245da5;
+}
+
+.small {
+  font-size: 13px;
+  color: #777;
+}
+
+.admin-product {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  background: #f3f7ff;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+}
+
+.admin-product img {
+  width: 85px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+@media(max-width:600px) {
+  .logo {
+    font-size: 21px;
+  }
+
+  .container {
+    padding: 18px 4%;
+  }
+
+  .products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .card {
+    padding: 9px;
+  }
+
+  .card img {
+    height: 145px;
+  }
 }
 </style>
 </head>
@@ -128,6 +264,7 @@ footer{text-align:center;padding:25px;color:#526b88}
 <main id="store" class="container hidden">
   <h2 id="welcome"></h2>
   <h2>Discover Your Favorites ✨</h2>
+
   <div class="tools">
     <input id="search" placeholder="Search products..." oninput="renderProducts()">
     <select id="category" onchange="renderProducts()">
@@ -139,6 +276,7 @@ footer{text-align:center;padding:25px;color:#526b88}
       <option>Electronics</option>
     </select>
   </div>
+
   <div id="productArea" class="products"></div>
 </main>
 
@@ -182,6 +320,7 @@ footer{text-align:center;padding:25px;color:#526b88}
     <p>Enter product details and choose a picture from your computer.</p>
     <input id="newName" placeholder="Product name">
     <input id="newPrice" type="number" min="1" placeholder="Product price">
+
     <select id="newCategory">
       <option>Fashion</option>
       <option>Beauty</option>
@@ -189,6 +328,7 @@ footer{text-align:center;padding:25px;color:#526b88}
       <option>Home</option>
       <option>Electronics</option>
     </select>
+
     <p>Choose product picture:</p>
     <input id="newImage" type="file" accept="image/*">
     <br><br>
@@ -207,41 +347,47 @@ footer{text-align:center;padding:25px;color:#526b88}
 <script>
 
 // OWNER LOGIN
-const ADMIN_NAME="hesa";
-const ADMIN_PASSWORD="hesa@2005";
+const ADMIN_NAME = "hesa";
+const ADMIN_PASSWORD = "hesa@2005";
 
-function openOwner(){
+function openOwner() {
   hideAll();
   document.getElementById("ownerScreen").classList.remove("hidden");
 }
 
-function ownerLogin(){
-  const name=document.getElementById("ownerName").value.trim();
-  const pass=document.getElementById("ownerPassword").value;
+function ownerLogin() {
+  const name = document.getElementById("ownerName").value.trim();
+  const pass = document.getElementById("ownerPassword").value;
 
-  if(name===ADMIN_NAME && pass===ADMIN_PASSWORD){
+  if (name === ADMIN_NAME && pass === ADMIN_PASSWORD) {
     hideAll();
     document.getElementById("adminPage").classList.remove("hidden");
+    document.getElementById("headerButtons").classList.remove("hidden");
     renderAdmin();
-  }else{
+  } else {
     alert("Incorrect owner name or password!");
   }
 }
 
-function closeOwnerLogin(){
+function closeOwnerLogin() {
   hideAll();
-  if(currentUser) showStore();
-  else document.getElementById("loginScreen").classList.remove("hidden");
+  if (currentUser) {
+    showStore();
+  } else {
+    document.getElementById("loginScreen").classList.remove("hidden");
+  }
 }
 
-function logoutAdmin(){
+function logoutAdmin() {
   hideAll();
   document.getElementById("headerButtons").classList.add("hidden");
   document.getElementById("loginScreen").classList.remove("hidden");
+  document.getElementById("ownerName").value = "";
+  document.getElementById("ownerPassword").value = "";
 }
 
 // DEFAULT PRODUCTS
-const defaultProducts=[
+const defaultProducts = [
 {id:1,name:"Pink Dress",price:899,category:"Fashion",image:"https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=600"},
 {id:2,name:"Blue Jeans",price:999,category:"Fashion",image:"https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600"},
 {id:3,name:"Handbag",price:699,category:"Accessories",image:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600"},
@@ -264,307 +410,398 @@ const defaultProducts=[
 {id:20,name:"Bracelet",price:299,category:"Accessories",image:"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600"}
 ];
 
-let products=JSON.parse(localStorage.getItem("hesaProducts"))||defaultProducts;
-let cart=JSON.parse(localStorage.getItem("hesaCart"))||[];
-let wishlist=JSON.parse(localStorage.getItem("hesaWishlist"))||[];
-let currentUser=JSON.parse(sessionStorage.getItem("hesaUser"))||null;
+let products = JSON.parse(localStorage.getItem("hesaProducts")) || defaultProducts;
+let cart = JSON.parse(localStorage.getItem("hesaCart")) || [];
+let wishlist = JSON.parse(localStorage.getItem("hesaWishlist")) || [];
+let currentUser = JSON.parse(sessionStorage.getItem("hesaUser")) || null;
 
-function saveData(){
-  localStorage.setItem("hesaProducts",JSON.stringify(products));
-  localStorage.setItem("hesaCart",JSON.stringify(cart));
-  localStorage.setItem("hesaWishlist",JSON.stringify(wishlist));
+function saveData() {
+  localStorage.setItem("hesaProducts", JSON.stringify(products));
+  localStorage.setItem("hesaCart", JSON.stringify(cart));
+  localStorage.setItem("hesaWishlist", JSON.stringify(wishlist));
 }
 
-function hideAll(){
-  ["loginScreen","ownerScreen","store","wishlistPage",
-   "cartPage","orderPage","adminPage"].forEach(id=>{
+function hideAll() {
+  [
+    "loginScreen",
+    "ownerScreen",
+    "store",
+    "wishlistPage",
+    "cartPage",
+    "orderPage",
+    "adminPage"
+  ].forEach(id => {
     document.getElementById(id).classList.add("hidden");
   });
 }
 
-function login(){
-  const name=document.getElementById("customerName").value.trim();
-  const email=document.getElementById("customerEmail").value.trim();
+function login() {
+  const name = document.getElementById("customerName").value.trim();
+  const email = document.getElementById("customerEmail").value.trim();
 
-  if(!name||!email||!email.includes("@")){
+  if (!name || !email || !email.includes("@")) {
     alert("Please enter your name and a valid email.");
     return;
   }
-  currentUser={name,email};
-  sessionStorage.setItem("hesaUser",JSON.stringify(currentUser));
+
+  currentUser = {name, email};
+  sessionStorage.setItem("hesaUser", JSON.stringify(currentUser));
   showStore();
 }
 
-function logout(){
-  currentUser=null;
+function logout() {
+  currentUser = null;
   sessionStorage.removeItem("hesaUser");
-  cart=[];
-  wishlist=[];
+  cart = [];
+  wishlist = [];
   saveData();
+
   hideAll();
   document.getElementById("headerButtons").classList.add("hidden");
   document.getElementById("loginScreen").classList.remove("hidden");
 }
 
-function showStore(){
-  if(!currentUser){
+// SHOW STORE
+function showStore() {
+  if (!currentUser) {
     hideAll();
     document.getElementById("loginScreen").classList.remove("hidden");
     return;
   }
+
   hideAll();
   document.getElementById("store").classList.remove("hidden");
   document.getElementById("headerButtons").classList.remove("hidden");
-  document.getElementById("welcome").innerText="Hello, "+currentUser.name+"! Welcome to HESA 💙";
+
+  document.getElementById("welcome").innerText =
+    "Hello, " + currentUser.name + "! Welcome to HESA 💙";
+
   renderProducts();
   updateCartCount();
 }
 
 // PRODUCTS
-function renderProducts(){
-  const search=document.getElementById("search").value.toLowerCase();
-  const category=document.getElementById("category").value;
-  const filtered=products.filter(p=>
-    p.name.toLowerCase().includes(search)&&
-    (category==="All"||p.category===category)
-  );
-  const area=document.getElementById("productArea");
-  area.innerHTML="";
+function renderProducts() {
+  const search = document.getElementById("search").value.toLowerCase();
+  const category = document.getElementById("category").value;
 
-  if(filtered.length===0){
-    area.innerHTML="<p>No products found.</p>";
+  const filtered = products.filter(p =>
+    p.name.toLowerCase().includes(search) &&
+    (category === "All" || p.category === category)
+  );
+
+  const area = document.getElementById("productArea");
+  area.innerHTML = "";
+
+  if (filtered.length === 0) {
+    area.innerHTML = "<p>No products found.</p>";
     return;
   }
 
-  filtered.forEach(p=>{
-    area.innerHTML+=`
-    <div class="card">
-      <button class="heart" onclick="toggleWishlist(${p.id})">
-        ${wishlist.includes(p.id)?"💙":"🤍"}
-      </button>
-      <img src="${p.image}" alt="${p.name}"
-      onerror="this.src='https://placehold.co/400x300?text=HESA+Product'">
-      <h3>${p.name}</h3>
-      <p>${p.category}</p>
-      <div class="stars">★★★★★</div>
-      <p class="price">₹${p.price}</p>
-      <button onclick="addToCart(${p.id})">Add to Cart</button>
-    </div>`;
+  filtered.forEach(p => {
+    area.innerHTML += `
+      <div class="card">
+        <button class="heart" onclick="toggleWishlist(${p.id})">
+          ${wishlist.includes(p.id) ? "💙" : "🤍"}
+        </button>
+        <img src="${p.image}" alt="${p.name}"
+          onerror="this.src='https://placehold.co/400x300?text=HESA+Product'">
+        <h3>${p.name}</h3>
+        <p>${p.category}</p>
+        <div class="stars">★★★★★</div>
+        <p class="price">₹${p.price}</p>
+        <button onclick="addToCart(${p.id})">Add to Cart</button>
+      </div>`;
   });
 }
 
 // WISHLIST
-function toggleWishlist(id){
-  if(!currentUser){alert("Please login first!");return;}
-  if(wishlist.includes(id)) wishlist=wishlist.filter(x=>x!==id);
-  else wishlist.push(id);
+function toggleWishlist(id) {
+  if (!currentUser) {
+    alert("Please login first!");
+    return;
+  }
+
+  if (wishlist.includes(id)) {
+    wishlist = wishlist.filter(x => x !== id);
+  } else {
+    wishlist.push(id);
+  }
+
   saveData();
   renderProducts();
 }
 
-function showWishlist(){
-  if(!currentUser)return;
+function showWishlist() {
+  if (!currentUser) return;
+
   hideAll();
+  document.getElementById("headerButtons").classList.remove("hidden");
   document.getElementById("wishlistPage").classList.remove("hidden");
-  const area=document.getElementById("wishlistArea");
-  area.innerHTML="";
-  const items=products.filter(p=>wishlist.includes(p.id));
 
-  if(!items.length){area.innerHTML="<p>Your wishlist is empty.</p>";return;}
+  const area = document.getElementById("wishlistArea");
+  area.innerHTML = "";
 
-  items.forEach(p=>{
-    area.innerHTML+=`
-    <div class="card">
-      <img src="${p.image}" alt="${p.name}">
-      <h3>${p.name}</h3>
-      <p class="price">₹${p.price}</p>
-      <button onclick="addToCart(${p.id})">Add to Cart</button>
-      <button onclick="toggleWishlist(${p.id});showWishlist()" style="background:#777">Remove</button>
-    </div>`;
+  const items = products.filter(p => wishlist.includes(p.id));
+
+  if (!items.length) {
+    area.innerHTML = "<p>Your wishlist is empty.</p>";
+    return;
+  }
+
+  items.forEach(p => {
+    area.innerHTML += `
+      <div class="card">
+        <img src="${p.image}" alt="${p.name}">
+        <h3>${p.name}</h3>
+        <p class="price">₹${p.price}</p>
+        <button onclick="addToCart(${p.id})">Add to Cart</button>
+        <button onclick="toggleWishlist(${p.id});showWishlist()" style="background:#777">Remove</button>
+      </div>`;
   });
 }
 
 // CART
-function addToCart(id){
-  if(!currentUser){alert("Please login first!");return;}
-  const item=cart.find(x=>x.id===id);
-  if(item)item.qty++;
-  else cart.push({id,qty:1});
+function addToCart(id) {
+  if (!currentUser) {
+    alert("Please login first!");
+    return;
+  }
+
+  const item = cart.find(x => x.id === id);
+
+  if (item) {
+    item.qty++;
+  } else {
+    cart.push({id, qty:1});
+  }
+
   saveData();
   updateCartCount();
   alert("Product added to your cart!");
 }
 
-function updateCartCount(){
-  document.getElementById("cartCount").innerText=
-    cart.reduce((sum,item)=>sum+item.qty,0);
+function updateCartCount() {
+  document.getElementById("cartCount").innerText =
+    cart.reduce((sum, item) => sum + item.qty, 0);
 }
 
-function showCart(){
-  if(!currentUser)return;
+function showCart() {
+  if (!currentUser) return;
+
   hideAll();
+  document.getElementById("headerButtons").classList.remove("hidden");
   document.getElementById("cartPage").classList.remove("hidden");
-  const area=document.getElementById("cartArea");
-  area.innerHTML="";
-  let total=0;
 
-  cart.forEach(item=>{
-    const p=products.find(x=>x.id===item.id);
-    if(!p)return;
-    total+=p.price*item.qty;
-    area.innerHTML+=`
-    <div class="panel">
-      <h3>${p.name}</h3>
-      <p>Price: ₹${p.price}</p>
-      <p>Quantity: ${item.qty}</p>
-      <button onclick="changeQty(${p.id},-1)">−</button>
-      <button onclick="changeQty(${p.id},1)">+</button>
-      <button onclick="removeCart(${p.id})" style="background:#777">Remove</button>
-    </div>`;
+  const area = document.getElementById("cartArea");
+  area.innerHTML = "";
+  let total = 0;
+
+  cart.forEach(item => {
+    const p = products.find(x => x.id === item.id);
+    if (!p) return;
+
+    total += p.price * item.qty;
+
+    area.innerHTML += `
+      <div class="panel">
+        <h3>${p.name}</h3>
+        <p>Price: ₹${p.price}</p>
+        <p>Quantity: ${item.qty}</p>
+        <button onclick="changeQty(${p.id},-1)">−</button>
+        <button onclick="changeQty(${p.id},1)">+</button>
+        <button onclick="removeCart(${p.id})" style="background:#777">Remove</button>
+      </div>`;
   });
-  document.getElementById("total").innerText="Total: ₹"+total;
+
+  document.getElementById("total").innerText = "Total: ₹" + total;
 }
 
-function changeQty(id,change){
-  const item=cart.find(x=>x.id===id);
-  if(!item)return;
-  item.qty+=change;
-  if(item.qty<=0)cart=cart.filter(x=>x.id!==id);
+function changeQty(id, change) {
+  const item = cart.find(x => x.id === id);
+  if (!item) return;
+
+  item.qty += change;
+
+  if (item.qty <= 0) {
+    cart = cart.filter(x => x.id !== id);
+  }
+
   saveData();
   updateCartCount();
   showCart();
 }
 
-function removeCart(id){
-  cart=cart.filter(x=>x.id!==id);
+function removeCart(id) {
+  cart = cart.filter(x => x.id !== id);
   saveData();
   updateCartCount();
   showCart();
 }
 
 // DEMO CHECKOUT
-function checkout(){
-  if(cart.length===0){alert("Your cart is empty!");return;}
-  const earliest=new Date();
-  const latest=new Date();
-  earliest.setDate(earliest.getDate()+5);
-  latest.setDate(latest.getDate()+7);
+function checkout() {
+  if (cart.length === 0) {
+    alert("Your cart is empty!");
+    return;
+  }
 
-  const fmt=d=>d.toLocaleDateString("en-IN",{
-    day:"numeric",month:"long",year:"numeric"
+  const earliest = new Date();
+  const latest = new Date();
+
+  earliest.setDate(earliest.getDate() + 5);
+  latest.setDate(latest.getDate() + 7);
+
+  const fmt = d => d.toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "long",
+    year: "numeric"
   });
 
   hideAll();
   document.getElementById("orderPage").classList.remove("hidden");
-  document.getElementById("orderNumber").innerText=
-    "Demo Order ID: HESA"+Math.floor(100000+Math.random()*900000);
-  document.getElementById("deliveryDate").innerText=
-    "Estimated demo delivery: "+fmt(earliest)+" – "+fmt(latest);
 
-  cart=[];
+  document.getElementById("orderNumber").innerText =
+    "Demo Order ID: HESA" + Math.floor(100000 + Math.random() * 900000);
+
+  document.getElementById("deliveryDate").innerText =
+    "Estimated demo delivery: " + fmt(earliest) + " – " + fmt(latest);
+
+  cart = [];
   saveData();
   updateCartCount();
 }
 
-function backToStore(){showStore();}
+function backToStore() {
+  showStore();
+}
 
 // ADD PRODUCT
-function addProduct(){
-  const name=document.getElementById("newName").value.trim();
-  const price=Number(document.getElementById("newPrice").value);
-  const category=document.getElementById("newCategory").value;
-  const file=document.getElementById("newImage").files[0];
+function addProduct() {
+  const name = document.getElementById("newName").value.trim();
+  const price = Number(document.getElementById("newPrice").value);
+  const category = document.getElementById("newCategory").value;
+  const file = document.getElementById("newImage").files[0];
 
-  if(!name||!price||price<=0||!file){
+  if (!name || !price || price <= 0 || !file) {
     alert("Please enter product name, valid price and choose a picture.");
     return;
   }
 
-  if(!file.type.startsWith("image/")){
+  if (!file.type.startsWith("image/")) {
     alert("Please choose an image file.");
     return;
   }
 
-  const reader=new FileReader();
+  const reader = new FileReader();
 
-  reader.onload=function(){
+  reader.onload = function() {
     products.push({
-      id:Date.now(),
-      name:name,
-      price:price,
-      category:category,
-      image:reader.result
+      id: Date.now(),
+      name: name,
+      price: price,
+      category: category,
+      image: reader.result
     });
 
-    try{
+    try {
       saveData();
-    }catch(e){
+    } catch (e) {
       products.pop();
       alert("This image is too large for browser storage. Please choose a smaller picture.");
       return;
     }
 
-    document.getElementById("newName").value="";
-    document.getElementById("newPrice").value="";
-    document.getElementById("newImage").value="";
+    document.getElementById("newName").value = "";
+    document.getElementById("newPrice").value = "";
+    document.getElementById("newImage").value = "";
 
     renderAdmin();
     alert("Product added successfully to HESA Shop!");
+  };
+
+  reader.onerror = function() {
+    alert("Could not read this picture. Please choose another image.");
   };
 
   reader.readAsDataURL(file);
 }
 
 // ADMIN PRODUCT LIST
-function renderAdmin(){
-  const area=document.getElementById("adminProducts");
-  area.innerHTML="";
+function renderAdmin() {
+  const area = document.getElementById("adminProducts");
+  area.innerHTML = "";
 
-  if(products.length===0){
-    area.innerHTML="<p>No products available.</p>";
+  if (products.length === 0) {
+    area.innerHTML = "<p>No products available.</p>";
     return;
   }
 
-  products.forEach(p=>{
-    area.innerHTML+=`
-    <div class="admin-product">
-      <img src="${p.image}" alt="${p.name}">
-      <div style="flex:1">
-        <h3>${p.name}</h3>
-        <p>₹${p.price} | ${p.category}</p>
-      </div>
-      <button onclick="editProduct(${p.id})">Edit Price</button>
-      <button onclick="deleteProduct(${p.id})" style="background:#b44444">Delete</button>
-    </div>`;
+  products.forEach(p => {
+    area.innerHTML += `
+      <div class="admin-product">
+        <img src="${p.image}" alt="${p.name}">
+        <div style="flex:1">
+          <h3>${p.name}</h3>
+          <p>₹${p.price} | ${p.category}</p>
+        </div>
+        <button onclick="editProduct(${p.id})">Edit Price</button>
+        <button onclick="deleteProduct(${p.id})" style="background:#b44444">Delete</button>
+      </div>`;
   });
 }
 
-function editProduct(id){
-  const p=products.find(x=>x.id===id);
-  if(!p)return;
-  const newPrice=prompt("Enter new price:",p.price);
-  if(newPrice!==null&&newPrice.trim()!==""&&Number(newPrice)>0){
-    p.price=Number(newPrice);
+function editProduct(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+
+  const newPrice = prompt("Enter new price:", p.price);
+
+  if (newPrice !== null && newPrice.trim() !== "" && Number(newPrice) > 0) {
+    p.price = Number(newPrice);
     saveData();
     renderAdmin();
     alert("Price updated!");
   }
 }
 
-function deleteProduct(id){
-  if(!confirm("Are you sure you want to delete this product?"))return;
-  products=products.filter(p=>p.id!==id);
-  cart=cart.filter(x=>x.id!==id);
-  wishlist=wishlist.filter(x=>x!==id);
+function deleteProduct(id) {
+  if (!confirm("Are you sure you want to delete this product?")) return;
+
+  products = products.filter(p => p.id !== id);
+  cart = cart.filter(x => x.id !== id);
+  wishlist = wishlist.filter(x => x !== id);
+
   saveData();
   renderAdmin();
   alert("Product deleted!");
 }
 
+// VIEW CUSTOMER STORE FROM OWNER DASHBOARD
+function showStore() {
+  if (!currentUser) {
+    hideAll();
+    document.getElementById("adminPage").classList.add("hidden");
+    document.getElementById("loginScreen").classList.remove("hidden");
+    document.getElementById("headerButtons").classList.add("hidden");
+    return;
+  }
+
+  hideAll();
+  document.getElementById("store").classList.remove("hidden");
+  document.getElementById("headerButtons").classList.remove("hidden");
+
+  document.getElementById("welcome").innerText =
+    "Hello, " + currentUser.name + "! Welcome to HESA 💙";
+
+  renderProducts();
+  updateCartCount();
+}
+
 // START
-if(currentUser){
+if (currentUser) {
   showStore();
-}else{
+} else {
   hideAll();
   document.getElementById("loginScreen").classList.remove("hidden");
 }
