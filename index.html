@@ -4,434 +4,200 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ShopEase | Online Shopping</title>
-
+<title>ShopEase | Affordable Shopping</title>
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: #f8f9fc;
-    color: #222;
-}
-
-header {
-    background: white;
-    padding: 18px 7%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 15px;
-    box-shadow: 0 2px 10px #ddd;
-}
-
-.logo {
-    font-size: 27px;
-    font-weight: bold;
-    color: #7048e8;
-}
-
-.search {
-    display: flex;
-    gap: 5px;
-}
-
-.search input {
-    padding: 12px;
-    width: 240px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-}
-
-.search button, .cart-btn {
-    background: #7048e8;
-    color: white;
-    border: none;
-    padding: 12px 18px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-nav {
-    background: #7048e8;
-    padding: 15px;
-    text-align: center;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 18px;
-    font-weight: bold;
-}
-
-.hero {
-    margin: 25px auto;
-    width: 90%;
-    padding: 65px 35px;
-    border-radius: 20px;
-    background: linear-gradient(120deg, #d9c8ff, #ffd9e9, #ffe9bd);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.hero h1 {
-    font-size: 42px;
-    color: #35205e;
-    margin-bottom: 15px;
-}
-
-.hero p {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.hero button {
-    background: #7048e8;
-    color: white;
-    border: none;
-    padding: 14px 25px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.hero img {
-    width: 35%;
-    max-height: 230px;
-    object-fit: cover;
-    border-radius: 15px;
-}
-
-.section-title {
-    text-align: center;
-    margin: 35px 0 20px;
-    font-size: 28px;
-}
-
-.categories {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 15px;
-}
-
-.categories button {
-    border: none;
-    padding: 13px 22px;
-    border-radius: 25px;
-    background: #eee7ff;
-    color: #5533b5;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.categories button:hover,
-.categories button.active {
-    background: #7048e8;
-    color: white;
-}
-
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 22px;
-    padding: 25px 7%;
-}
-
-.product {
-    background: white;
-    border-radius: 15px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 3px 12px #ddd;
-    transition: 0.3s;
-}
-
-.product:hover {
-    transform: translateY(-5px);
-}
-
-.product img {
-    width: 100%;
-    height: 190px;
-    object-fit: contain;
-    border-radius: 10px;
-}
-
-.product h3 {
-    margin: 12px 0;
-}
-
-.price {
-    color: #7048e8;
-    font-weight: bold;
-    font-size: 20px;
-    margin: 10px;
-}
-
-.product button {
-    background: #7048e8;
-    color: white;
-    border: none;
-    padding: 11px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 100%;
-}
-
-.product button:hover {
-    background: #5030b5;
-}
-
-#cart {
-    background: white;
-    margin: 30px 7%;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 3px 12px #ddd;
-}
-
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.cart-item button {
-    padding: 5px 10px;
-    margin: 3px;
-    cursor: pointer;
-}
-
-#cart-total {
-    margin-top: 20px;
-    color: #7048e8;
-}
-
-footer {
-    background: #29213c;
-    color: white;
-    padding: 30px;
-    text-align: center;
-    margin-top: 40px;
-}
-
-@media(max-width: 650px) {
-    header {
-        justify-content: center;
-    }
-
-    .hero {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero h1 {
-        font-size: 30px;
-    }
-
-    .hero img {
-        width: 90%;
-    }
-
-    .search input {
-        width: 170px;
-    }
-
-    nav a {
-        margin: 0 7px;
-    }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#fffaf7;color:#292929}
+header{background:#fff;padding:18px 6%;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;box-shadow:0 2px 12px #0001;position:sticky;top:0;z-index:5}
+.logo{font-size:27px;font-weight:bold;color:#e65b83}
+.logo span{color:#333}
+.search{padding:12px;border:1px solid #ddd;border-radius:25px;width:260px;max-width:100%;font-size:15px}
+.cart-btn{background:#e65b83;color:white;border:0;padding:12px 18px;border-radius:25px;cursor:pointer;font-weight:bold}
+.hero{margin:25px 5%;padding:45px 7%;border-radius:22px;background:linear-gradient(120deg,#ffe0e9,#fff0d9);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.hero h1{font-size:clamp(30px,5vw,48px);color:#a8325b;margin-bottom:12px}
+.hero p{font-size:17px;line-height:1.6}
+.hero img{width:230px;max-width:100%;border-radius:20px;object-fit:cover}
+.hero button{margin-top:18px;background:#e65b83;color:white;border:0;padding:13px 23px;border-radius:25px;cursor:pointer}
+h2{text-align:center;margin:35px 0 20px;font-size:27px}
+.categories{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:0 15px}
+.categories button{border:1px solid #e65b83;background:white;color:#b63b60;padding:10px 18px;border-radius:25px;cursor:pointer}
+.categories button.active,.categories button:hover{background:#e65b83;color:white}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:22px;padding:25px 5%}
+.card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 3px 15px #00000010;transition:.2s}
+.card:hover{transform:translateY(-5px)}
+.card img{width:100%;height:190px;object-fit:cover;background:#f5eeee}
+.details{padding:15px}
+.details h3{font-size:17px;margin-bottom:8px}
+.price{color:#df4775;font-size:19px;font-weight:bold;margin:9px 0}
+.old{font-size:13px;color:#999;text-decoration:line-through;margin-left:5px}
+.details button{width:100%;padding:11px;border:0;border-radius:8px;background:#e65b83;color:white;cursor:pointer;font-weight:bold}
+.details button:hover{background:#bd3d65}
+.empty{text-align:center;padding:35px;color:#777;grid-column:1/-1}
+footer{background:#292929;color:white;text-align:center;padding:28px;margin-top:35px;line-height:1.8}
+#cartPanel{display:none;position:fixed;right:0;top:0;width:350px;max-width:100%;height:100%;background:white;z-index:10;box-shadow:-5px 0 20px #0003;padding:22px;overflow-y:auto}
+.cart-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.close{border:0;background:#eee;padding:8px 12px;border-radius:8px;cursor:pointer}
+.cart-item{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:13px 0;border-bottom:1px solid #eee}
+.cart-item button{padding:5px 9px;border:0;border-radius:5px;cursor:pointer}
+.total{font-size:21px;font-weight:bold;margin:22px 0}
+.checkout{width:100%;background:#e65b83;color:white;border:0;padding:13px;border-radius:9px;cursor:pointer}
+@media(max-width:600px){
+ header{justify-content:center}
+ .search{width:100%}
+ .hero{text-align:center;justify-content:center}
+ .hero img{width:180px}
+ .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:15px}
+ .card img{height:145px}
+ .details{padding:10px}
+ .details h3{font-size:14px}
 }
 </style>
 </head>
-
 <body>
 
 <header>
-    <div class="logo">🛍️ ShopEase</div>
-
-    <div class="search">
-        <input type="text" id="searchInput"
-        placeholder="Search products..."
-        oninput="renderProducts()">
-        <button onclick="renderProducts()">Search</button>
-    </div>
-
-    <button class="cart-btn"
-    onclick="document.getElementById('cart').scrollIntoView({behavior:'smooth'})">
-        🛒 Cart (<span id="cart-count">0</span>)
-    </button>
+ <div class="logo">Shop<span>Ease</span> 🛍️</div>
+ <input class="search" id="search" placeholder="Search products..." oninput="renderProducts()">
+ <button class="cart-btn" onclick="openCart()">🛒 Cart (<span id="count">0</span>)</button>
 </header>
 
-<nav>
-    <a href="#">Home</a>
-    <a href="#categories">Categories</a>
-    <a href="#products">Products</a>
-    <a href="#cart">My Cart</a>
-    <a href="#contact">Contact</a>
-</nav>
-
 <section class="hero">
-    <div>
-        <h1>Big Shopping Days!</h1>
-        <p>Discover your favourite products at amazing prices.</p>
-        <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
-            Shop Now →
-        </button>
-    </div>
-
-    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600"
-    alt="Shopping store">
+ <div>
+  <h1>Shopping Made Affordable!</h1>
+  <p>Beautiful products. Everyday prices.<br>Smart shopping for everyone.</p>
+  <button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Explore Products</button>
+ </div>
+ <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500" alt="Shopping store">
 </section>
 
-<h2 class="section-title" id="categories">Shop By Categories</h2>
-
-<div class="categories">
-    <button class="active" onclick="filterCategory('All',this)">All</button>
-    <button onclick="filterCategory('Fashion',this)">Fashion</button>
-    <button onclick="filterCategory('Electronics',this)">Electronics</button>
-    <button onclick="filterCategory('Beauty',this)">Beauty</button>
-    <button onclick="filterCategory('Accessories',this)">Accessories</button>
+<h2 id="shop">Explore Our Products</h2>
+<div class="categories" id="categories">
+ <button class="active" onclick="setCategory('All',this)">All</button>
+ <button onclick="setCategory('Fashion',this)">Fashion</button>
+ <button onclick="setCategory('Accessories',this)">Accessories</button>
+ <button onclick="setCategory('Electronics',this)">Electronics</button>
+ <button onclick="setCategory('Home',this)">Home</button>
+ <button onclick="setCategory('Beauty',this)">Beauty</button>
+ <button onclick="setCategory('Stationery',this)">Stationery</button>
 </div>
 
-<h2 class="section-title" id="products">Our Products</h2>
+<div class="products" id="products"></div>
 
-<div class="products" id="product-list"></div>
-
-<section id="cart">
-    <h2>🛒 Your Shopping Cart</h2>
-    <div id="cart-items">Your cart is empty.</div>
-    <h2 id="cart-total">Total: ₹0</h2>
-</section>
-
-<footer id="contact">
-    <h2>ShopEase</h2>
-    <p>Your favourite online shopping destination.</p>
-    <p>Email: support@example.com</p>
-    <p>© 2026 ShopEase. All Rights Reserved.</p>
+<footer>
+ <h2>ShopEase 🛍️</h2>
+ Affordable shopping for everyone.<br>
+ © 2026 ShopEase. All rights reserved.
 </footer>
 
+<div id="cartPanel">
+ <div class="cart-head">
+  <h2>Your Cart</h2>
+  <button class="close" onclick="closeCart()">✕ Close</button>
+ </div>
+ <div id="cartItems"></div>
+ <div class="total">Total: ₹<span id="total">0</span></div>
+ <button class="checkout" onclick="checkout()">Place Demo Order</button>
+ <p style="font-size:12px;color:#888;margin-top:12px">Demo only. No actual payment or order is processed.</p>
+</div>
+
 <script>
-const products = [
-    {id:1,name:"Stylish T-Shirt",price:599,category:"Fashion",image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400"},
-    {id:2,name:"Casual Shoes",price:1299,category:"Fashion",image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400"},
-    {id:3,name:"Smart Watch",price:1999,category:"Electronics",image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400"},
-    {id:4,name:"Headphones",price:1499,category:"Electronics",image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400"},
-    {id:5,name:"Beauty Products",price:799,category:"Beauty",image:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400"},
-    {id:6,name:"Face Care",price:499,category:"Beauty",image:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400"},
-    {id:7,name:"Handbag",price:999,category:"Accessories",image:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400"},
-    {id:8,name:"Sunglasses",price:699,category:"Accessories",image:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400"}
+const products=[
+{id:1,name:"Casual Women's Kurti",price:299,category:"Fashion",img:"photo-1584865288642-42078afe6942"},
+{id:2,name:"Cotton T-Shirt",price:199,category:"Fashion",img:"photo-1521572163474-6864f9cf17ab"},
+{id:3,name:"Everyday Leggings",price:179,category:"Fashion",img:"photo-1506629905607-d9a7b7b1a5b7"},
+{id:4,name:"Mini Handbag",price:349,category:"Fashion",img:"photo-1584917865442-de89df76afd3"},
+{id:5,name:"Earrings Set",price:99,category:"Accessories",img:"photo-1535632066927-ab7c9ab60908"},
+{id:6,name:"Hair Clips Combo",price:59,category:"Accessories",img:"photo-1522335789203-aabd1fc54bc9"},
+{id:7,name:"Phone Cover",price:99,category:"Electronics",img:"photo-1603313011108-4c4f7e0c0c0d"},
+{id:8,name:"Charging Cable",price:149,category:"Electronics",img:"photo-1583863788434-e58a36330cf0"},
+{id:9,name:"Wired Earphones",price:249,category:"Electronics",img:"photo-1505740420928-5e560c06d30e"},
+{id:10,name:"Water Bottle",price:129,category:"Home",img:"photo-1602143407151-7111542de6e8"},
+{id:11,name:"Lunch Box",price:199,category:"Home",img:"photo-1498837167922-ddd27525d352"},
+{id:12,name:"Storage Organizer",price:149,category:"Home",img:"photo-1586023492125-27b2c045efd7"},
+{id:13,name:"Bedsheet",price:399,category:"Home",img:"photo-1631679706909-1844bbd07221"},
+{id:14,name:"Notebook Set",price:99,category:"Stationery",img:"photo-1531346878377-a5be20888e57"},
+{id:15,name:"Pen Combo",price:49,category:"Stationery",img:"photo-1455390582262-044cdead277a"},
+{id:16,name:"Makeup Pouch",price:129,category:"Beauty",img:"photo-1529139574466-a303027c1d8b"},
+{id:17,name:"Comb Set",price:59,category:"Beauty",img:"photo-1527799820374-dcf8d9d4a388"},
+{id:18,name:"Kitchen Organizer",price:199,category:"Home",img:"photo-1556911220-bff31c812dba"},
+{id:19,name:"Tote Bag",price:149,category:"Accessories",img:"photo-1544816155-12df9643f363"},
+{id:20,name:"Desk Lamp",price:299,category:"Home",img:"photo-1507473885765-e6ed057f782c"}
 ];
 
-let selectedCategory = "All";
-let cart = [];
+let category="All";
+let cart={};
 
-function renderProducts() {
-    const search = document.getElementById("searchInput").value.toLowerCase();
-
-    const filtered = products.filter(product =>
-        (selectedCategory === "All" || product.category === selectedCategory) &&
-        product.name.toLowerCase().includes(search)
-    );
-
-    const list = document.getElementById("product-list");
-
-    if(filtered.length === 0) {
-        list.innerHTML = "<p>No products found.</p>";
-        return;
-    }
-
-    list.innerHTML = filtered.map(product => `
-        <div class="product">
-            <img src="${product.image}" alt="${product.name}">
-            <h3>${product.name}</h3>
-            <p class="price">₹${product.price}</p>
-            <button onclick="addToCart(${product.id})">Add to Cart</button>
-        </div>
-    `).join("");
+function imageUrl(id){
+ return "https://images.unsplash.com/"+id+"?auto=format&fit=crop&w=500&q=80";
 }
 
-function filterCategory(category, button) {
-    selectedCategory = category;
-
-    document.querySelectorAll(".categories button").forEach(btn =>
-        btn.classList.remove("active")
-    );
-
-    button.classList.add("active");
-    renderProducts();
+function renderProducts(){
+ const search=document.getElementById("search").value.toLowerCase();
+ const filtered=products.filter(p=>
+ (category==="All"||p.category===category)&&
+ p.name.toLowerCase().includes(search)
+ );
+ document.getElementById("products").innerHTML=filtered.length?filtered.map(p=>`
+ <div class="card">
+  <img src="${imageUrl(p.img)}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/400x300?text=ShopEase'">
+  <div class="details">
+   <h3>${p.name}</h3>
+   <div class="price">₹${p.price}</div>
+   <button onclick="addToCart(${p.id})">Add to Cart 🛒</button>
+  </div>
+ </div>`).join(""):'<div class="empty">No products found. Try another search.</div>';
 }
 
-function addToCart(id) {
-    const existing = cart.find(item => item.id === id);
-
-    if(existing) {
-        existing.quantity++;
-    } else {
-        cart.push({id:id,quantity:1});
-    }
-
-    renderCart();
+function setCategory(value,button){
+ category=value;
+ document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
+ button.classList.add("active");
+ renderProducts();
 }
 
-function changeQuantity(id, amount) {
-    const item = cart.find(item => item.id === id);
-    if(!item) return;
-
-    item.quantity += amount;
-
-    if(item.quantity <= 0) {
-        cart = cart.filter(item => item.id !== id);
-    }
-
-    renderCart();
+function addToCart(id){
+ cart[id]=(cart[id]||0)+1;
+ updateCart();
 }
 
-function renderCart() {
-    const container = document.getElementById("cart-items");
-    let total = 0;
-    let count = 0;
-
-    if(cart.length === 0) {
-        container.innerHTML = "Your cart is empty.";
-    } else {
-        container.innerHTML = cart.map(item => {
-            const product = products.find(p => p.id === item.id);
-            total += product.price * item.quantity;
-            count += item.quantity;
-
-            return `
-                <div class="cart-item">
-                    <span>${product.name} - ₹${product.price}</span>
-                    <span>
-                        <button onclick="changeQuantity(${item.id},-1)">−</button>
-                        ${item.quantity}
-                        <button onclick="changeQuantity(${item.id},1)">+</button>
-                    </span>
-                </div>
-            `;
-        }).join("");
-    }
-
-    if(cart.length === 0) count = 0;
-
-    document.getElementById("cart-count").innerText = count;
-    document.getElementById("cart-total").innerText = "Total: ₹" + total;
+function updateCart(){
+ let count=0,total=0;
+ const items=Object.entries(cart);
+ document.getElementById("cartItems").innerHTML=items.length?items.map(([id,qty])=>{
+ const p=products.find(x=>x.id===Number(id));
+ count+=qty;total+=p.price*qty;
+ return `<div class="cart-item">
+ <div><b>${p.name}</b><br>₹${p.price} × ${qty}</div>
+ <div>
+ <button onclick="changeQty(${id},-1)">−</button>
+ <button onclick="changeQty(${id},1)">+</button>
+ </div></div>`;
+ }).join(""):"<p>Your cart is empty.</p>";
+ document.getElementById("count").textContent=count;
+ document.getElementById("total").textContent=total;
 }
 
+function changeQty(id,change){
+ cart[id]=(cart[id]||0)+change;
+ if(cart[id]<=0)delete cart[id];
+ updateCart();
+}
+
+function openCart(){
+ document.getElementById("cartPanel").style.display="block";
+}
+function closeCart(){
+ document.getElementById("cartPanel").style.display="none";
+}
+function checkout(){
+ if(Object.keys(cart).length===0){
+ alert("Your cart is empty!");
+ return;
+ }
+ alert("Thank you for trying ShopEase! This is a demo store. Online ordering and payment are not enabled yet.");
+}
 renderProducts();
+updateCart();
 </script>
-
 </body>
 </html>
